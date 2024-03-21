@@ -1,0 +1,29 @@
+{
+    "name": "@tak-ps/frontend-infra",
+    "type": "module",
+    "private": true,
+    "version": "1.0.0",
+    "description": "CloudFormation managed infrastructure for cotak.gov frontend",
+    "scripts": {
+        "lint": "eslint cloudformation/*.js cloudformation/lib/*.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "engines": {
+        "node": ">= 18"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dfpc-coe/frontend-infra.git"
+    },
+    "author": "Nick Ingalls <nick@ingalls.ca>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/dfpc-coe/frontend-infra/issues"
+    },
+    "homepage": "https://github.com/dfpc-coe/frontend-infra#readme",
+    "dependencies": {
+        "@openaddresses/batch-alarms": "^4.0.0",
+        "@openaddresses/cloudfriend": "^7.0.0",
+        "@openaddresses/deploy": "^8.0.0"
+    }
+}
