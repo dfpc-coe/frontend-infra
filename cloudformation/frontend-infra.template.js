@@ -1,4 +1,5 @@
 import cf from '@openaddresses/cloudfriend';
+import SG from './lib/sg.js';
 import RDS from './lib/db.js';
 import KMS from './lib/kms.js';
 
@@ -16,5 +17,5 @@ export default cf.merge(
                 Default: 'prod'
             },
         },
-    }, RDS, KMS
+    }, SG, RDS, KMS
 );

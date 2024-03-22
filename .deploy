@@ -1,0 +1,16 @@
+{
+    "name": "coe-etl",
+    "profile": "coegc",
+    "region": "us-gov-east-1",
+    "tags": [
+        {
+            "Key": "Project",
+            "Value": "frontend-infra"
+        },
+        "Owner",
+        "Client"
+    ],
+    "artifacts": {
+        "docker": []
+    }
+}
