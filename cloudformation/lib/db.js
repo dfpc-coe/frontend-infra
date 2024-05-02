@@ -69,7 +69,7 @@ export default {
                 MonitoringRoleArn: cf.getAtt('DBMonitoringRole', 'Arn'),
                 KmsKeyId: cf.ref('KMS'),
                 EngineVersion: '8.0.35',
-                PreferredMaintenanceWindow: 'Sun:11:00-Sun:11:30',
+                PreferredMaintenanceWindow: 'Sun:22:00-Sun:22:30',
                 StorageEncrypted: true,
                 MasterUsername: cf.sub('{{resolve:secretsmanager:${AWS::StackName}/rds/secret:SecretString:username:AWSCURRENT}}'),
                 MasterUserPassword: cf.sub('{{resolve:secretsmanager:${AWS::StackName}/rds/secret:SecretString:password:AWSCURRENT}}'),
