@@ -12,6 +12,11 @@
 
 ### Pending Release
 
+### v1.2.0
+
+- :rocket: Update MySQL Version to get us back into band
+- :rocket: Update our Preferred Maintenance Window
+
 ### v1.1.0
 
 - :rocket: Releaser & additional database options
