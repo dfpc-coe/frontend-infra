@@ -14,6 +14,6 @@ export default {
                 VpcId: cf.importValue(cf.join(['coe-vpc-', cf.ref('Environment'), '-vpc'])),
                 SecurityGroupIngress: []
             }
-        },
+        }
     }
 };

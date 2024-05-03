@@ -123,7 +123,7 @@ export default {
                 'Port=3306; ',
                 'Database=frontend; ',
                 'Uid=', cf.sub('{{resolve:secretsmanager:${AWS::StackName}/rds/secret:SecretString:username:AWSCURRENT}}'), '; ',
-                'Pwd=', cf.sub('{{resolve:secretsmanager:${AWS::StackName}/rds/secret:SecretString:password:AWSCURRENT}}'), '; ',
+                'Pwd=', cf.sub('{{resolve:secretsmanager:${AWS::StackName}/rds/secret:SecretString:password:AWSCURRENT}}'), '; '
             ])
         }
     }

@@ -23,7 +23,11 @@
     "homepage": "https://github.com/dfpc-coe/frontend-infra#readme",
     "dependencies": {
         "@openaddresses/batch-alarms": "^4.0.0",
-        "@openaddresses/cloudfriend": "^7.0.0",
+        "@openaddresses/cloudfriend": "^7.0.0"
+    },
+    "devDependencies": {
+        "eslint": "^9.1.1",
+        "eslint-plugin-n": "^17.4.0",
         "@openaddresses/deploy": "^8.0.0"
     }
 }
