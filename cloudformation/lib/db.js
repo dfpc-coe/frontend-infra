@@ -4,12 +4,10 @@ export default {
     Parameters: {
         DatabaseType: {
             Type: 'String',
-            Default: 'db.t3.micro',
+            Default: 'db.m5.large',
             Description: 'Database size to create',
             AllowedValues: [
-                'db.t3.micro',
-                'db.t3.small',
-                'db.t3.medium'
+                'db.m5.large'
             ]
         }
     },
@@ -73,6 +71,9 @@ export default {
                 StorageEncrypted: true,
                 MasterUsername: cf.sub('{{resolve:secretsmanager:${AWS::StackName}/rds/secret:SecretString:username:AWSCURRENT}}'),
                 MasterUserPassword: cf.sub('{{resolve:secretsmanager:${AWS::StackName}/rds/secret:SecretString:password:AWSCURRENT}}'),
+                EnablePerformanceInsights: true,
+                PerformanceInsightsKMSKeyId: cf.ref('KMS'),
+                PerformanceInsightsRetentionPeriod: 7,
                 AllocatedStorage: 50,
                 MaxAllocatedStorage: 100,
                 BackupRetentionPeriod: 10,
