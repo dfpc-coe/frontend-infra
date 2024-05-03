@@ -12,6 +12,12 @@
 
 ### Pending Release
 
+### v1.3.0
+
+- :rocket: Add Performance Insights
+- :rocket: Change underlying RDS Instance to support Performance Insights
+- :white_check_mark: Add GH Actions Test Runner for linting CF Templates
+
 ### v1.2.0
 
 - :rocket: Update MySQL Version to get us back into band
