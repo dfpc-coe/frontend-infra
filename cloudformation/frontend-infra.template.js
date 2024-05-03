@@ -1,9 +1,14 @@
 import cf from '@openaddresses/cloudfriend';
 import SG from './lib/sg.js';
 import RDS from './lib/db.js';
+import Alarms from './lib/alarms.js';
 import KMS from './lib/kms.js';
+import {
+    RDS as RDSAlarms
+} from '@openaddresses/batch-alarms';
 
 export default cf.merge(
+    SG, RDS, KMS, Alarms,
     {
         Description: 'Template for @tak-ps/frontend-infra',
         Parameters: {
@@ -17,5 +22,10 @@ export default cf.merge(
                 Default: 'prod'
             }
         }
-    }, SG, RDS, KMS
+    },
+    RDSAlarms({
+        prefix: 'Batch',
+        topic: cf.ref('AlarmTopic'),
+        instance: cf.ref('DBInstance')
+    }),
 );

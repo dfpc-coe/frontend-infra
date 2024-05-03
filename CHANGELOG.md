@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.4.0
+
+- :rocket: Setup Alarms
+
 ### v1.3.0
 
 - :rocket: Add Performance Insights
