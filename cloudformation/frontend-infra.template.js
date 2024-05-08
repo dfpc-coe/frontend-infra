@@ -3,12 +3,13 @@ import SG from './lib/sg.js';
 import RDS from './lib/db.js';
 import Alarms from './lib/alarms.js';
 import KMS from './lib/kms.js';
+import SMS from './lib/sms.js';
 import {
     RDS as RDSAlarms
 } from '@openaddresses/batch-alarms';
 
 export default cf.merge(
-    SG, RDS, KMS, Alarms,
+    SG, RDS, SMS, KMS, Alarms,
     {
         Description: 'Template for @tak-ps/frontend-infra',
         Parameters: {

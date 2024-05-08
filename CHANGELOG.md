@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.5.0
+
+- :rocket: Add Notify Topic for SMS delivery
+
 ### v1.4.0
 
 - :rocket: Setup Alarms
