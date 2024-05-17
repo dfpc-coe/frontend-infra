@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.6.0
+
+- :rocket: Add `Public` and `Content` Buckets
+
 ### v1.5.0
 
 - :rocket: Add Notify Topic for SMS delivery

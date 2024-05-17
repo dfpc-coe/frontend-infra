@@ -2,6 +2,7 @@ import cf from '@openaddresses/cloudfriend';
 import SG from './lib/sg.js';
 import RDS from './lib/db.js';
 import Alarms from './lib/alarms.js';
+import S3 from './lib/s3.js';
 import KMS from './lib/kms.js';
 import SMS from './lib/sms.js';
 import {
@@ -9,7 +10,7 @@ import {
 } from '@openaddresses/batch-alarms';
 
 export default cf.merge(
-    SG, RDS, SMS, KMS, Alarms,
+    S3, SG, RDS, SMS, KMS, Alarms,
     {
         Description: 'Template for @tak-ps/frontend-infra',
         Parameters: {
@@ -28,5 +29,5 @@ export default cf.merge(
         prefix: 'Batch',
         topic: cf.ref('AlarmTopic'),
         instance: cf.ref('DBInstance')
-    }),
+    })
 );
