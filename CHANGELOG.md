@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.7.0
+
+- :rocket: Add API Role with Access to Public & Content Buckets
+
 ### v1.6.0
 
 - :rocket: Add `Public` and `Content` Buckets
