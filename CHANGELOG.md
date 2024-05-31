@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.9.0
+
+- :rocket: Configure EC2 Policy
+
 ### v1.8.0
 
 - :rocket: Configure existing bucket configuration

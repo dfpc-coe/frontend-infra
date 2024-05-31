@@ -2,6 +2,13 @@ import cf from '@openaddresses/cloudfriend';
 
 export default {
     Resources: {
+        ApplicationInstanceProfile: {
+            Type: 'AWS::IAM::InstanceProfile',
+            Properties: {
+                InstanceProfileName: cf.stackName,
+                Roles: [ cf.ref('ApplicationRole') ]
+            }
+        },
         ApplicationRole: {
             Type: 'AWS::IAM::Role',
             Properties: {
