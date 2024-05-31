@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.8.0
+
+- :rocket: Configure existing bucket configuration
+
 ### v1.7.0
 
 - :rocket: Add API Role with Access to Public & Content Buckets
