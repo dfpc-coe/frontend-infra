@@ -12,9 +12,13 @@
 
 ### Pending Release
 
+### v1.12.0
+
+- :rocket: Include `kms:GenerateDataKey` in API Role
+
 ### v1.11.0
 
-- :rocket: Include `kms:Decrypt` in S3 Bucket
+- :rocket: Include `kms:Decrypt` in API Role
 
 ### v1.10.0
 

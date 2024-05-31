@@ -28,7 +28,10 @@ export default {
                     },{
                         Effect: 'Allow',
                         Resource: [ cf.getAtt('KMS', 'Arn') ],
-                        Action: 'kms:Decrypt'
+                        Action: [
+                            'kms:Decrypt',
+                            'kms:GenerateDataKey'
+                        ]
                     }]
                 }
             }
