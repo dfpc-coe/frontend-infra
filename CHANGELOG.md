@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.11.0
+
+- :rocket: Include `kms:Decrypt` in S3 Bucket
+
 ### v1.10.0
 
 - :rocket: Include Role & Group

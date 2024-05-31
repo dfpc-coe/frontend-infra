@@ -25,6 +25,10 @@ export default {
                             cf.join(['arn:', cf.partition, ':s3:::', cf.ref('PublicAssetBucket'), '/*'])
                         ],
                         Action: '*'
+                    },{
+                        Effect: 'Allow',
+                        Resource: [ cf.getAtt('KMS', 'Arn') ],
+                        Action: 'kms:Decrypt'
                     }]
                 }
             }
