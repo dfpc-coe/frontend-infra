@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.10.0
+
+- :rocket: Include Role & Group
+
 ### v1.9.0
 
 - :rocket: Configure EC2 Policy

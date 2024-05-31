@@ -9,6 +9,32 @@ export default {
                 Roles: [ cf.ref('ApplicationRole') ]
             }
         },
+        ApplicationPolicy: {
+            Type: 'AWS::IAM::Policy',
+            Properties: {
+                PolicyName: cf.join('-', [cf.stackName, cf.accountId, cf.region, 'api-policy']),
+                Roles: [cf.ref('ApplicationRole')],
+                Groups: [cf.ref('ApplicationGroup')],
+                PolicyDocument: {
+                    Statement: [{
+                        Effect: 'Allow',
+                        Resource: [
+                            cf.join(['arn:', cf.partition, ':s3:::', cf.ref('ContentAssetBucket')]),
+                            cf.join(['arn:', cf.partition, ':s3:::', cf.ref('ContentAssetBucket'), '/*']),
+                            cf.join(['arn:', cf.partition, ':s3:::', cf.ref('PublicAssetBucket')]),
+                            cf.join(['arn:', cf.partition, ':s3:::', cf.ref('PublicAssetBucket'), '/*'])
+                        ],
+                        Action: '*'
+                    }]
+                }
+            }
+        },
+        ApplicationGroup: {
+            Type: 'AWS::IAM::Group',
+            Properties: {
+                GroupName: cf.join('-', [cf.stackName, cf.accountId, cf.region]),
+            }
+        },
         ApplicationRole: {
             Type: 'AWS::IAM::Role',
             Properties: {
@@ -23,21 +49,6 @@ export default {
                         Action: 'sts:AssumeRole'
                     }]
                 },
-                Policies: [{
-                    PolicyName: cf.join('-', [cf.stackName, 'api-policy']),
-                    PolicyDocument: {
-                        Statement: [{
-                            Effect: 'Allow',
-                            Resource: [
-                                cf.join(['arn:', cf.partition, ':s3:::', cf.ref('ContentAssetBucket')]),
-                                cf.join(['arn:', cf.partition, ':s3:::', cf.ref('ContentAssetBucket'), '/*']),
-                                cf.join(['arn:', cf.partition, ':s3:::', cf.ref('PublicAssetBucket')]),
-                                cf.join(['arn:', cf.partition, ':s3:::', cf.ref('PublicAssetBucket'), '/*'])
-                            ],
-                            Action: '*'
-                        }]
-                    }
-                }],
                 Path: '/'
             }
         },
