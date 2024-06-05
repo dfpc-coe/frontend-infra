@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.13.0
+
+- :rocket: Add basic SMS-Voice permissions to enable text support
+
 ### v1.12.0
 
 - :rocket: Include `kms:GenerateDataKey` in API Role

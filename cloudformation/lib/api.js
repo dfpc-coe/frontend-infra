@@ -1,6 +1,16 @@
 import cf from '@openaddresses/cloudfriend';
 
 export default {
+    Parameters: {
+        PhoneNumberARN: {
+            Description: 'Phone Number ARN to allow access to',
+            Type: 'String'
+        },
+        PhoneNumberOptOutARN: {
+            Description: 'Phone Number Opt Out List ARN to allow access to',
+            Type: 'String'
+        }
+    },
     Resources: {
         ApplicationInstanceProfile: {
             Type: 'AWS::IAM::InstanceProfile',
@@ -25,6 +35,19 @@ export default {
                             cf.join(['arn:', cf.partition, ':s3:::', cf.ref('PublicAssetBucket'), '/*'])
                         ],
                         Action: '*'
+                    },{
+                        Effect: "Allow",
+                        Action: [
+                            'sms-voice:DeleteOptedOutNumber',
+                            'sms-voice:PutOptedOutNumber',
+                            'sms-voice:Describe*',
+                            'sms-voice:List*',
+                            'sms-voice:SendTextMessage'
+                        ],
+                        Resource: [
+                            cf.ref('PhoneNumberARN'),
+                            cf.ref('PhoneNumberOptOutARN')
+                        ]
                     },{
                         Effect: 'Allow',
                         Resource: [ cf.getAtt('KMS', 'Arn') ],
