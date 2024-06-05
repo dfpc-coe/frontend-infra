@@ -40,6 +40,7 @@ export default {
                         Action: [
                             'sms-voice:DeleteOptedOutNumber',
                             'sms-voice:PutOptedOutNumber',
+                            'sms-voice:CheckIfPhoneNumberIsOptedOut',
                             'sms-voice:Describe*',
                             'sms-voice:List*',
                             'sms-voice:SendTextMessage'
