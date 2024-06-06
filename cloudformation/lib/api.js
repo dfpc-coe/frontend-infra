@@ -37,15 +37,13 @@ export default {
                             'sms-voice:DeleteOptedOutNumber',
                             'sms-voice:PutOptedOutNumber',
                             'sms-voice:CheckIfPhoneNumberIsOptedOut',
+                            'sms-voice:Get*',
                             'sms-voice:Describe*',
                             'sms-voice:List*',
-                            'sms-voice:SendTextMessage'
+                            'sms-voice:Verify*',
+                            'sms-voice:Send*'
                         ],
-                        Resource: [
-                            cf.ref('PhoneNumberARN'),
-                            cf.join(['arn:', cf.partition, ':sms-voice:', cf.region, ':', cf.accountId, ':opt-out-list/', cf.ref('Environment')]),
-                            cf.join(['arn:', cf.partition, ':sms-voice:', cf.region, ':', cf.accountId, ':configuration-set/', cf.ref('Environment')])
-                        ]
+                        Resource: '*'
                     },{
                         Effect: 'Allow',
                         Resource: [ cf.getAtt('KMS', 'Arn') ],

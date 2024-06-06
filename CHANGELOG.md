@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.15.0
+
+- :rocket: Set resource to `*` on `sms-voice` services per AWS Docs
+
 ### v1.14.0
 
 - :rocket: Setup Configurationset for SMS-Voice and use auto-prefixes for setting perms
