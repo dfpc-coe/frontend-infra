@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.14.0
+
+- :rocket: Setup Configurationset for SMS-Voice and use auto-prefixes for setting perms
+
 ### v1.13.0
 
 - :rocket: Add basic SMS-Voice permissions to enable text support

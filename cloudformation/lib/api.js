@@ -6,10 +6,6 @@ export default {
             Description: 'Phone Number ARN to allow access to',
             Type: 'String'
         },
-        PhoneNumberOptOutARN: {
-            Description: 'Phone Number Opt Out List ARN to allow access to',
-            Type: 'String'
-        }
     },
     Resources: {
         ApplicationInstanceProfile: {
@@ -47,7 +43,8 @@ export default {
                         ],
                         Resource: [
                             cf.ref('PhoneNumberARN'),
-                            cf.ref('PhoneNumberOptOutARN')
+                            cf.join(['arn:', cf.partition, ':sms-voice:', cf.region, ':', cf.accountId, ':opt-out-list/', cf.ref('Environment')]),
+                            cf.join(['arn:', cf.partition, ':sms-voice:', cf.region, ':', cf.accountId, ':configuration-set/', cf.ref('Environment')])
                         ]
                     },{
                         Effect: 'Allow',
