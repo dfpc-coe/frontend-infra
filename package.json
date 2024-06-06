@@ -2,7 +2,7 @@
     "name": "@tak-ps/frontend-infra",
     "type": "module",
     "private": true,
-    "version": "1.14.0",
+    "version": "1.15.0",
     "description": "CloudFormation managed infrastructure for cotak.gov frontend",
     "scripts": {
         "lint": "eslint cloudformation/*.js cloudformation/lib/*.js",
