@@ -1,12 +1,6 @@
 import cf from '@openaddresses/cloudfriend';
 
 export default {
-    Parameters: {
-        PhoneNumberARN: {
-            Description: 'Phone Number ARN to allow access to',
-            Type: 'String'
-        },
-    },
     Resources: {
         ApplicationInstanceProfile: {
             Type: 'AWS::IAM::InstanceProfile',

@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.15.1
+
+- :rocket: Remove `PhoneNumberARN` as `sms-voice` currently doesn't support Resource Restrictions
+
 ### v1.15.0
 
 - :rocket: Set resource to `*` on `sms-voice` services per AWS Docs
