@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.16.0
+
+- :rocket: Remove empty Ingress array in Security Group to avoid incorrect positive Drift Detection
+
 ### v1.15.1
 
 - :rocket: Remove `PhoneNumberARN` as `sms-voice` currently doesn't support Resource Restrictions

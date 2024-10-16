@@ -11,8 +11,7 @@ export default {
                 }],
                 GroupName: cf.join('-', [cf.stackName, 'ec2-sg']),
                 GroupDescription: 'EC2s in this SG have access to the MySQL Database',
-                VpcId: cf.importValue(cf.join(['coe-vpc-', cf.ref('Environment'), '-vpc'])),
-                SecurityGroupIngress: []
+                VpcId: cf.importValue(cf.join(['coe-vpc-', cf.ref('Environment'), '-vpc']))
             }
         }
     }
