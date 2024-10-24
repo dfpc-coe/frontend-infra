@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.17.0
+
+- :rocket: Add KMS Key Alias
+
 ### v1.16.0
 
 - :rocket: Remove empty Ingress array in Security Group to avoid incorrect positive Drift Detection
