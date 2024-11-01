@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.18.0
+
+- :rocket: Add CORS Options to Content Bucket
+
 ### v1.17.0
 
 - :rocket: Add KMS Key Alias

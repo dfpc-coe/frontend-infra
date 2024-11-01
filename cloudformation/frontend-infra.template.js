@@ -22,7 +22,11 @@ export default cf.merge(
                 Description: 'VPC/ECS Stack to deploy into',
                 Type: 'String',
                 Default: 'prod'
-            }
+            },
+            HostedURL: {
+                Description: 'URL of domain/subdomain at which the API is hosted ie: "example.com"',
+                Type: 'String'
+            },
         }
     },
     RDSAlarms({

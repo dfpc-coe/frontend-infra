@@ -15,6 +15,13 @@ export default {
                 VersioningConfiguration: {
                     Status: "Enabled"
                 },
+                CorsConfiguration: {
+                    CorsRules: [{
+                        AllowedHeaders: ['Content-Type', 'Content-Length'],
+                        AllowedMethods: ['GET'],
+                        AllowedOrigins: [cf.join(['https://', cf.ref('HostedURL')])]
+                    }]
+                },
                 OwnershipControls: {
                     Rules: [{
                         ObjectOwnership: "BucketOwnerEnforced"
@@ -36,13 +43,13 @@ export default {
             Properties: {
                 Bucket: cf.ref('PublicAssetBucket'),
                 PolicyDocument: {
-                    "Version": "2012-10-17",
-                    "Statement": [{
-                        "Sid": "Statement1",
-                        "Effect": "Allow",
-                        "Principal": "*",
-                        "Action": "s3:GetObject",
-                        "Resource": [
+                    Version: "2012-10-17",
+                    Statement: [{
+                        Sid: 'Statement1',
+                        Effect: 'Allow',
+                        Principal: '*',
+                        Action: 's3:GetObject',
+                        Resource: [
                             cf.join(['arn:', cf.partition, ':s3:::', cf.ref('PublicAssetBucket'), '/*']),
                             cf.join(['arn:', cf.partition, ':s3:::', cf.ref('PublicAssetBucket')])
                         ]
