@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.19.0
+
+- :rocket: Add CORS Options to Public Bucket
+
 ### v1.18.0
 
 - :rocket: Add CORS Options to Content Bucket
