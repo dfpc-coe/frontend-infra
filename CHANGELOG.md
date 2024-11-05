@@ -12,6 +12,12 @@
 
 ### Pending Release
 
+### v1.20.0
+
+- :tada: Introduce an ALB infront of Frontend Traffic and use ACM for certificate issuance
+- :rocket: Restrict SSH traffic to Forge Deployment Tooling
+- :rocket: Restrict EC2 web traffic to the ELB SG
+
 ### v1.19.0
 
 - :rocket: Add CORS Options to Public Bucket

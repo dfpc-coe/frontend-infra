@@ -11,7 +11,31 @@ export default {
                 }],
                 GroupName: cf.join('-', [cf.stackName, 'ec2-sg']),
                 GroupDescription: 'EC2s in this SG have access to the MySQL Database',
-                VpcId: cf.importValue(cf.join(['coe-vpc-', cf.ref('Environment'), '-vpc']))
+                VpcId: cf.importValue(cf.join(['coe-vpc-', cf.ref('Environment'), '-vpc'])),
+                SecurityGroupIngress: [{
+                    SourceSecurityGroupId: cf.ref('ELBSecurityGroup'),
+                    IpProtocol: 'tcp',
+                    FromPort: 80,
+                    ToPort: 80
+                },{
+                    // https://forge.laravel.com/ips-v4.txt #1
+                    CidrIp: '159.203.150.232/32',
+                    IpProtocol: 'tcp',
+                    FromPort: 22,
+                    ToPort: 22
+                },{
+                    // https://forge.laravel.com/ips-v4.txt #2
+                    CidrIp: '45.55.124.124/32',
+                    IpProtocol: 'tcp',
+                    FromPort: 22,
+                    ToPort: 22
+                },{
+                    // https://forge.laravel.com/ips-v4.txt #3
+                    CidrIp: '159.203.150.216/32',
+                    IpProtocol: 'tcp',
+                    FromPort: 22,
+                    ToPort: 22
+                }],
             }
         }
     }
