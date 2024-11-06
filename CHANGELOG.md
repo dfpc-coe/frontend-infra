@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.21.0
+
+- :tada: Allow access to EC2 via AWS Instance Connect Endpoint
+
 ### v1.20.0
 
 - :tada: Introduce an ALB infront of Frontend Traffic and use ACM for certificate issuance

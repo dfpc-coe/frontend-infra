@@ -18,6 +18,11 @@ export default {
                     FromPort: 80,
                     ToPort: 80
                 },{
+                    SourceSecurityGroupId: cf.importValue(cf.join(['coe-vpc-', cf.ref('Environment'), '-connect-public-a-sg'])),
+                    IpProtocol: 'tcp',
+                    FromPort: 22,
+                    ToPort: 22
+                },{
                     // https://forge.laravel.com/ips-v4.txt #1
                     CidrIp: '159.203.150.232/32',
                     IpProtocol: 'tcp',
