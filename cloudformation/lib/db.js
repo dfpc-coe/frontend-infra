@@ -106,10 +106,14 @@ export default {
                 GroupDescription: 'Allow RDS Database Ingress',
                 VpcId: cf.importValue(cf.join(['coe-vpc-', cf.ref('Environment'), '-vpc'])),
                 SecurityGroupIngress: [{
-                    IpProtocol: '-1',
+                    IpProtocol: 'TCP',
+                    FromPort: 3306,
+                    ToPort: 3306,
                     SourceSecurityGroupId: cf.getAtt('ServiceSecurityGroup', 'GroupId')
                 },{
-                    IpProtocol: '-1',
+                    IpProtocol: 'TCP',
+                    FromPort: 3306,
+                    ToPort: 3306,
                     CidrIp: '0.0.0.0/0'
                 }]
             }

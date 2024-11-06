@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.22.0
+
+- :rocker: Restrict ingress to RDS to only allow MySQL port
+
 ### v1.21.0
 
 - :tada: Allow access to EC2 via AWS Instance Connect Endpoint
