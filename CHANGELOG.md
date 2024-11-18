@@ -12,9 +12,13 @@
 
 ### Pending Release
 
+### v1.23.0
+
+- :rocket: Allow bastion host traffic
+
 ### v1.22.0
 
-- :rocker: Restrict ingress to RDS to only allow MySQL port
+- :rocket: Restrict ingress to RDS to only allow MySQL port
 
 ### v1.21.0
 

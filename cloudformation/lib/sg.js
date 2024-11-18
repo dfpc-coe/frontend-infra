@@ -19,6 +19,12 @@ export default {
                     FromPort: 80,
                     ToPort: 80
                 },{
+                    Description: 'Internal SSH Traffic',
+                    CidrIp: cf.importValue(cf.join(['coe-vpc-', cf.ref('Environment'), '-vpc-cidr'])),
+                    IpProtocol: 'tcp',
+                    FromPort: 22,
+                    ToPort: 22
+                },{
                     Description: 'AWS EC2 Connect internal VPC Endpoint',
                     SourceSecurityGroupId: cf.importValue(cf.join(['coe-vpc-', cf.ref('Environment'), '-connect-public-a-sg'])),
                     IpProtocol: 'tcp',
