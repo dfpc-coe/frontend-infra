@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.24.0
+
+- :rocket: Add CloudWatch Dashboards to support showing ELB Stats
+
 ### v1.23.0
 
 - :rocket: Allow bastion host traffic

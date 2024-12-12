@@ -6,6 +6,7 @@ import S3 from './lib/s3.js';
 import KMS from './lib/kms.js';
 import API from './lib/api.js';
 import {
+    ELB as ELBAlarms,
     RDS as RDSAlarms
 } from '@openaddresses/batch-alarms';
 
@@ -33,8 +34,14 @@ export default cf.merge(
             },
         }
     },
+    ELBAlarms({
+        prefix: 'elb',
+        topic: cf.ref('AlarmTopic'),
+        loadbalancer: cf.getAtt('ELB', 'LoadBalancerFullName'),
+        targetgroup: cf.getAtt('TargetGroup', 'TargetGroupFullName')
+    }),
     RDSAlarms({
-        prefix: 'Batch',
+        prefix: 'rds',
         topic: cf.ref('AlarmTopic'),
         instance: cf.ref('DBInstance')
     })
