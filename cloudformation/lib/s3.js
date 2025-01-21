@@ -13,7 +13,7 @@ export default {
                     BlockPublicAcls: true
                 },
                 VersioningConfiguration: {
-                    Status: "Enabled"
+                    Status: 'Enabled'
                 },
                 CorsConfiguration: {
                     CorsRules: [{
@@ -24,7 +24,7 @@ export default {
                 },
                 OwnershipControls: {
                     Rules: [{
-                        ObjectOwnership: "BucketOwnerEnforced"
+                        ObjectOwnership: 'BucketOwnerEnforced'
                     }]
                 },
                 BucketEncryption: {
@@ -39,11 +39,11 @@ export default {
             }
         },
         PublicAssetBucketPolicy: {
-            Type: "AWS::S3::BucketPolicy",
+            Type: 'AWS::S3::BucketPolicy',
             Properties: {
                 Bucket: cf.ref('PublicAssetBucket'),
                 PolicyDocument: {
-                    Version: "2012-10-17",
+                    Version: '2012-10-17',
                     Statement: [{
                         Sid: 'Statement1',
                         Effect: 'Allow',
@@ -76,12 +76,12 @@ export default {
                 },
                 OwnershipControls: {
                     Rules: [{
-                        ObjectOwnership: "BucketOwnerEnforced"
+                        ObjectOwnership: 'BucketOwnerEnforced'
                     }]
                 },
                 VersioningConfiguration: {
-                    Status: "Enabled"
-                },
+                    Status: 'Enabled'
+                }
             }
         }
     }

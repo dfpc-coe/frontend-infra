@@ -48,7 +48,7 @@ export default {
                     IpProtocol: 'tcp',
                     FromPort: 22,
                     ToPort: 22
-                }],
+                }]
             }
         }
     }

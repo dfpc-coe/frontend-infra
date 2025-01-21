@@ -5,7 +5,7 @@ export default {
         InstanceId: {
             Description: 'ECS Instance ID the frontend is deployed to',
             Type: 'String'
-        },
+        }
     },
     Resources: {
         Logs: {
@@ -127,7 +127,7 @@ export default {
             Type: 'AWS::IAM::InstanceProfile',
             Properties: {
                 InstanceProfileName: cf.stackName,
-                Roles: [ cf.ref('ApplicationRole') ]
+                Roles: [cf.ref('ApplicationRole')]
             }
         },
         ApplicationPolicy: {
@@ -147,7 +147,7 @@ export default {
                         ],
                         Action: '*'
                     },{
-                        Effect: "Allow",
+                        Effect: 'Allow',
                         Action: [
                             'sms-voice:DeleteOptedOutNumber',
                             'sms-voice:PutOptedOutNumber',
@@ -161,7 +161,7 @@ export default {
                         Resource: '*'
                     },{
                         Effect: 'Allow',
-                        Resource: [ cf.getAtt('KMS', 'Arn') ],
+                        Resource: [cf.getAtt('KMS', 'Arn')],
                         Action: [
                             'kms:Decrypt',
                             'kms:GenerateDataKey'
@@ -173,7 +173,7 @@ export default {
         ApplicationGroup: {
             Type: 'AWS::IAM::Group',
             Properties: {
-                GroupName: cf.join('-', [cf.stackName, cf.accountId, cf.region]),
+                GroupName: cf.join('-', [cf.stackName, cf.accountId, cf.region])
             }
         },
         ApplicationRole: {
@@ -192,6 +192,6 @@ export default {
                 },
                 Path: '/'
             }
-        },
+        }
     }
 };

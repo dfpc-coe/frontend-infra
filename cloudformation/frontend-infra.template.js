@@ -31,7 +31,7 @@ export default cf.merge(
             SSLCertificateIdentifier: {
                 Description: 'ACM SSL Certificate for top level wildcard: *.example.com and second level *.map.example.com',
                 Type: 'String'
-            },
+            }
         }
     },
     ELBAlarms({
