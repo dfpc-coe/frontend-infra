@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.25.0
+
+- :arrow_up: Update MySQL to latest version
+
 ### v1.24.0
 
 - :rocket: Add CloudWatch Dashboards to support showing ELB Stats
