@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.26.0
+
+- :rocket: Allow using T3 instances for cost savings
+
 ### v1.25.0
 
 - :arrow_up: Update MySQL to latest version

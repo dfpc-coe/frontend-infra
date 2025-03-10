@@ -7,6 +7,7 @@ export default {
             Default: 'db.m5.large',
             Description: 'Database size to create',
             AllowedValues: [
+                'db.t3.micro',
                 'db.m5.large'
             ]
         }
@@ -71,7 +72,7 @@ export default {
                 StorageEncrypted: true,
                 MasterUsername: cf.sub('{{resolve:secretsmanager:${AWS::StackName}/rds/secret:SecretString:username:AWSCURRENT}}'),
                 MasterUserPassword: cf.sub('{{resolve:secretsmanager:${AWS::StackName}/rds/secret:SecretString:password:AWSCURRENT}}'),
-                EnablePerformanceInsights: true,
+                EnablePerformanceInsights: cf.findInMap('DatabaseConfig', cf.ref('DatabaseType'), 'PerformanceInsightsEnabled'),
                 PerformanceInsightsKMSKeyId: cf.ref('KMS'),
                 PerformanceInsightsRetentionPeriod: 7,
                 AllocatedStorage: 50,
@@ -116,6 +117,16 @@ export default {
                     ToPort: 3306,
                     CidrIp: '0.0.0.0/0'
                 }]
+            }
+        }
+    },
+    Mappings: {
+        DatabaseConfig: {
+            'db.t3.micro': {
+                PerformanceInsightsEnabled: false
+            },
+            'db.m5.large': {
+                PerformanceInsightsEnabled: true
             }
         }
     },
