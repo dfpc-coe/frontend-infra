@@ -12,7 +12,7 @@
 
 ### Pending Release
 
-### v1.26.0
+### v1.26.0 - 2025-03-10
 
 - :rocket: Allow using T3 instances for cost savings
 
