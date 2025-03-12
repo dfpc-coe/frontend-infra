@@ -12,6 +12,9 @@
 
 ### Pending Release
 
+### v1.27.1 - 2025-03-12
+- :bug: fixed typo in sg.js
+
 ### v1.27.0 - 2025-03-12
 
 - :arrow_up:  Added new Forge Deploy IP address #4
