@@ -12,6 +12,8 @@
 
 ### Pending Release
 
+- :arrow_up:  Added new Forge Deploy IP address #4
+
 ### v1.26.0 - 2025-03-10
 
 - :rocket: Allow using T3 instances for cost savings
