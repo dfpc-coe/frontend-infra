@@ -2,6 +2,14 @@
 
 <p align=center>CloudFormation managed infrastructure for cotak.gov frontend</p>
 
+## Releases
+
+1. All changes shall be made via PR and tests pass before being merged
+2. Once the PR is merged, the CHANGELOG shall be updated with a new release folling SemVer rules
+3. Commit and push updated changelog `git commit -am "Update CHANGELOG" && git push`
+4. Release new version `npm verison <major|minor|patch>` depending on version specified in changelog
+5. Push release tag to github with `git push --tags`
+
 ## AWS Deployment
 
 From the root directory, install the deploy dependencies
