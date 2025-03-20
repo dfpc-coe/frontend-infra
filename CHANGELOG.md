@@ -12,7 +12,12 @@
 
 ### Pending Release
 
+### v1.27.2 - 2025-03-20
+
+- :bug: Fixes Current use of PerformanceInsightsRetentionPeriod results in a CloudFormation drift error due to the ACTUAL resource dropping this value when PerformanceInsights is set to false
+
 ### v1.27.1 - 2025-03-12
+
 - :bug: fixed typo in sg.js
 
 ### v1.27.0 - 2025-03-12
