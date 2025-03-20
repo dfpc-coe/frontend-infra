@@ -8,6 +8,7 @@ export default {
             Description: 'Database size to create',
             AllowedValues: [
                 'db.t3.micro',
+                // If more options are added be sure to update the PerformanceInsights Condition
                 'db.m5.large'
             ]
         }
@@ -72,9 +73,9 @@ export default {
                 StorageEncrypted: true,
                 MasterUsername: cf.sub('{{resolve:secretsmanager:${AWS::StackName}/rds/secret:SecretString:username:AWSCURRENT}}'),
                 MasterUserPassword: cf.sub('{{resolve:secretsmanager:${AWS::StackName}/rds/secret:SecretString:password:AWSCURRENT}}'),
-                EnablePerformanceInsights: cf.findInMap('DatabaseConfig', cf.ref('DatabaseType'), 'PerformanceInsightsEnabled'),
+                EnablePerformanceInsights: cf.if('PerformanceInsightsEnabled', true, false),
+                PerformanceInsightsRetentionPeriod: cf.if('PerformanceInsightsEnabled', 7, cf.noValue),
                 PerformanceInsightsKMSKeyId: cf.ref('KMS'),
-                PerformanceInsightsRetentionPeriod: 7,
                 AllocatedStorage: 50,
                 MaxAllocatedStorage: 100,
                 BackupRetentionPeriod: 10,
@@ -120,13 +121,16 @@ export default {
             }
         }
     },
+    Conditions: {
+        PerformanceInsightsEnabled: cf.equals(cf.findInMap('DatabaseConfig', cf.select(1, cf.split('.', cf.ref('DatabaseType'))), 'PerformanceInsights'), true)
+    },
     Mappings: {
         DatabaseConfig: {
-            'db.t3.micro': {
-                PerformanceInsightsEnabled: false
+            'm5': {
+                PerformanceInsights: true
             },
-            'db.m5.large': {
-                PerformanceInsightsEnabled: true
+            't3': {
+                PerformanceInsights: false
             }
         }
     },
