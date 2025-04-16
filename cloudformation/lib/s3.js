@@ -51,7 +51,7 @@ export default {
                 VersioningConfiguration: {
                     Status: 'Disabled'
                 },
-                RorsConfiguration: {
+                CorsConfiguration: {
                     CorsRules: [{
                         AllowedHeaders: ['Content-Type', 'Content-Length'],
                         AllowedMethods: ['GET'],
