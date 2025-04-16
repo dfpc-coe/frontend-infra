@@ -51,13 +51,6 @@ export default {
                 VersioningConfiguration: {
                     Status: 'Disabled'
                 },
-                CorsConfiguration: {
-                    CorsRules: [{
-                        AllowedHeaders: ['Content-Type', 'Content-Length'],
-                        AllowedMethods: ['GET'],
-                        AllowedOrigins: [cf.join(['https://', cf.ref('HostedURL')])]
-                    }]
-                },
                 OwnershipControls: {
                     Rules: [{
                         ObjectOwnership: 'BucketOwnerEnforced'
