@@ -38,6 +38,49 @@ export default {
                 }
             }
         },
+        TemporaryAssetBucket: {
+            Type: 'AWS::S3::Bucket',
+            Properties: {
+                BucketName: cf.join('-', [cf.stackName, cf.accountId, cf.region, 'temp']),
+                PublicAccessBlockConfiguration: {
+                    RestrictPublicBuckets: true,
+                    IgnorePublicAcls: true,
+                    BlockPublicPolicy: true,
+                    BlockPublicAcls: true
+                },
+                VersioningConfiguration: {
+                    Status: 'Disabled'
+                },
+                RorsConfiguration: {
+                    CorsRules: [{
+                        AllowedHeaders: ['Content-Type', 'Content-Length'],
+                        AllowedMethods: ['GET'],
+                        AllowedOrigins: [cf.join(['https://', cf.ref('HostedURL')])]
+                    }]
+                },
+                OwnershipControls: {
+                    Rules: [{
+                        ObjectOwnership: 'BucketOwnerEnforced'
+                    }]
+                },
+                BucketEncryption: {
+                    ServerSideEncryptionConfiguration: [{
+                        BucketKeyEnabled: true,
+                        ServerSideEncryptionByDefault: {
+                            KMSMasterKeyID: cf.ref('KMS'),
+                            SSEAlgorithm: 'aws:kms'
+                        }
+                    }]
+                },
+                LifecycleConfiguration: {
+                    Rules: [{
+                        Id: 'DeleteAfter1Day',
+                        Status: 'Enabled',
+                        ExpirationInDays: 1
+                    }]
+                }
+            }
+        },
         PublicAssetBucketPolicy: {
             Type: 'AWS::S3::BucketPolicy',
             Properties: {
