@@ -49,7 +49,7 @@ export default {
                     BlockPublicAcls: true
                 },
                 VersioningConfiguration: {
-                    Status: 'Disabled'
+                    Status: 'Suspended'
                 },
                 OwnershipControls: {
                     Rules: [{
