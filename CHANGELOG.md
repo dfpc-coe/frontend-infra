@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.28.0 - 2025-04-17
+
+- :rocket: Add S3 Temp Bucket
+
 ### v1.27.2 - 2025-03-20
 
 - :bug: Fixes Current use of PerformanceInsightsRetentionPeriod results in a CloudFormation drift error due to the ACTUAL resource dropping this value when PerformanceInsights is set to false
