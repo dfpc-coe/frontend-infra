@@ -143,7 +143,7 @@ export default {
                             cf.join(['arn:', cf.partition, ':s3:::', cf.ref('ContentAssetBucket')]),
                             cf.join(['arn:', cf.partition, ':s3:::', cf.ref('ContentAssetBucket'), '/*']),
                             cf.join(['arn:', cf.partition, ':s3:::', cf.ref('PublicAssetBucket')]),
-                            cf.join(['arn:', cf.partition, ':s3:::', cf.ref('PublicAssetBucket'), '/*'])
+                            cf.join(['arn:', cf.partition, ':s3:::', cf.ref('PublicAssetBucket'), '/*']),
                             cf.join(['arn:', cf.partition, ':s3:::', cf.ref('TemporaryAssetBucket')]),
                             cf.join(['arn:', cf.partition, ':s3:::', cf.ref('TemporaryAssetBucket'), '/*'])
                         ],
