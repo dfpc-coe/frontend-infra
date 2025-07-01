@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.29.0 - 2025-07-01
+
+- :rocket: Update mysql to 8.4.5
+
 ### v1.28.0 - 2025-04-17
 
 - :rocket: Add S3 Temp Bucket
