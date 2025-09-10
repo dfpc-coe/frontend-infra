@@ -9,6 +9,17 @@ export default {
         LatestUbuntuAMI: {
             Description: 'AMI of Graviton compatible Ubuntu AMI',
             Type: 'String'
+        },
+        InstanceType: {
+            Description: 'EC2 Instance Type',
+            Type: 'String',
+            Default: 't4g.micro',
+            AllowedValues: [
+                't4g.micro',
+                't4g.small',
+                't4g.medium',
+                't4g.large',
+            ]
         }
     },
     Resources: {
@@ -26,8 +37,8 @@ export default {
                     MinHealthyPercentage: 100
                 },
                 VPCZoneIdentifier: [
-                    cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-subnet-private-a'])),
-                    cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-subnet-private-b']))
+                    cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-subnet-public-a'])),
+                    cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-subnet-public-b']))
                 ],
                 MinSize: '1',
                 DesiredCapacity: '1',
@@ -77,8 +88,15 @@ export default {
                 LaunchTemplateName: cf.stackName,
                 LaunchTemplateData: {
                     ImageId: cf.ref('LatestUbuntuAMI'),
-                    InstanceType: 't4g.nano',
-                    SecurityGroupIds: [cf.getAtt('InstanceSecurityGroup', 'GroupId')],
+                    InstanceType: cf.ref('InstanceType'),
+                    NetworkInterfaces: [{
+                        AssociatePublicIpAddress: true,
+                        DeviceIndex: 0,
+                        DeleteOnTermination: true,
+                        Groups: [
+                            cf.getAtt('InstanceSecurityGroup', 'GroupId')
+                        ]
+                    }],
                     IamInstanceProfile: {
                         Arn: cf.getAtt('InstanceProfile', 'Arn')
                     },
