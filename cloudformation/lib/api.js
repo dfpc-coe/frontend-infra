@@ -1,13 +1,143 @@
 import cf from '@openaddresses/cloudfriend';
 
+const ForgeKeys = [{
+    Key: ''
+}]
+
 export default {
     Parameters: {
-        InstanceId: {
-            Description: 'ECS Instance ID the frontend is deployed to',
+        LatestUbuntuAMI: {
+            Description: 'AMI of Graviton compatible Ubuntu AMI',
             Type: 'String'
         }
     },
     Resources: {
+        InstanceASG: {
+            Type: 'AWS::AutoScaling::AutoScalingGroup',
+            Properties: {
+                AutoScalingGroupName: cf.stackName,
+                LaunchTemplate: {
+                    LaunchTemplateId: cf.ref('InstanceLaunchConfig'),
+                    Version: cf.getAtt('InstanceLaunchConfig', 'LatestVersionNumber')
+                },
+                TargetGroupARNs: [ cf.ref('TargetGroup') ],
+                InstanceMaintenancePolicy: {
+                    MaxHealthyPercentage: 200,
+                    MinHealthyPercentage: 100
+                },
+                VPCZoneIdentifier: [
+                    cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-subnet-private-a'])),
+                    cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-subnet-private-b']))
+                ],
+                MinSize: "1",
+                DesiredCapacity: "1",
+                MaxSize: "1",
+                Tags: [{
+                    Key: 'Name',
+                    Value: cf.stackName,
+                    PropagateAtLaunch: true
+                }]
+            }
+        },
+        InstanceLaunchConfig: {
+            Type: 'AWS::EC2::LaunchTemplate',
+            Metadata: {
+                'AWS::CloudFormation::Init': {
+                    package_update: true,
+                    package_upgrade: true,
+                    package_reboot_if_required: true,
+                    configSets: {
+                        default: [ 'setup_users', 'sources']
+                    },
+                    setup_users: {
+                        files: {
+                            '/home/ubuntu/.ssh/authorized_keys': {
+                                content: ForgeKeys.map((User) => { return User.Key }).join('\n'),
+                                mode: '000600',
+                                owner: 'ubuntu',
+                                group: 'ubuntu'
+                            },
+                        }
+                    },
+                    sources: {
+                        packages: {
+                            apt: {
+                                wget: [],
+                            }
+                        },
+                        commands: {
+                            '001': {
+                                command: 'apt-get update'
+                            }
+                        }
+                    },
+                }
+            },
+            Properties: {
+                  LaunchTemplateName: cf.stackName,
+                  LaunchTemplateData: {
+                      ImageId: cf.ref('LatestUbuntuAMI'),
+                      InstanceType: 't4g.nano',
+                      SecurityGroupIds: [ cf.getAtt('InstanceSecurityGroup', 'GroupId') ],
+                      IamInstanceProfile: {
+                        Arn: cf.getAtt('InstanceProfile', 'Arn')
+                      },
+                      UserData: cf.base64(cf.sub([
+                            '#!/bin/bash',
+                            'set -euo pipefail',
+
+                            'apt-get update -y',
+
+                            'sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config',
+                            'sed -i "s/PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config',
+                            'sed -i "s/#PermitRootLogin yes/PermitRootLogin no/" /etc/ssh/sshd_config',
+                            'sed -i "s/PermitRootLogin yes/PermitRootLogin no/" /etc/ssh/sshd_config',
+                            'sed -i "s/#PubkeyAuthentication yes/PubkeyAuthentication yes/" /etc/ssh/sshd_config',
+
+                            'systemctl restart ssh',
+
+                            'apt-get install -y ufw python3-pip python3-setuptools',
+
+                            'ufw --force enable',
+                            'ufw allow ssh',
+                            'ufw --force reload',
+
+                            'export DEBIAN_FRONTEND=noninteractive',
+
+                            // Ref https://repost.aws/knowledge-center/install-cloudformation-scripts
+                            'mkdir -p /opt/aws/',
+                            'pip3 install --break-system-packages https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz',
+
+                            'ln -s /usr/local/init/ubuntu/cfn-hup /etc/init.d/cfn-hup',
+
+                            '/usr/local/bin/cfn-init --verbose --stack ${AWS::StackName} --resource InstanceLaunchConfig --region ${AWS::Region}',
+                            '/usr/local/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource InstanceLaunchConfig --region ${AWS::Region}'
+                      ].join('\n')))
+                 }
+            }
+        },
+        InstanceProfile: {
+            Type: 'AWS::IAM::InstanceProfile',
+            Properties: {
+                Roles: [ cf.ref('InstanceRole') ]
+            }
+        },
+        InstanceRole: {
+            Type: 'AWS::IAM::Role',
+            Properties: {
+                AssumeRolePolicyDocument: {
+                    Version: '2012-10-17',
+                    Statement: [{
+                        Effect: 'Allow',
+                        Principal: { Service: 'ec2.amazonaws.com' },
+                        Action: 'sts:AssumeRole'
+                    }]
+                },
+                ManagedPolicyArns: [
+                    cf.join(['arn:', cf.partition, ':iam::aws:policy/AmazonSSMManagedInstanceCore'])
+                ]
+            }
+        },
         Logs: {
             Type: 'AWS::Logs::LogGroup',
             Properties: {
@@ -29,7 +159,7 @@ export default {
                     Value: true
                 },{
                     Key: 'connection_logs.s3.bucket',
-                    Value: cf.importValue(cf.join(['coe-elb-logs-', cf.ref('Environment'), '-bucket']))
+                    Value: cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-bucket']))
                 },{
                     Key: 'connection_logs.s3.prefix',
                     Value: cf.stackName
@@ -38,14 +168,14 @@ export default {
                     Value: true
                 },{
                     Key: 'access_logs.s3.bucket',
-                    Value: cf.importValue(cf.join(['coe-elb-logs-', cf.ref('Environment'), '-bucket']))
+                    Value: cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-bucket']))
                 },{
                     Key: 'access_logs.s3.prefix',
                     Value: cf.stackName
                 }],
                 Subnets:  [
-                    cf.importValue(cf.join(['coe-vpc-', cf.ref('Environment'), '-subnet-public-a'])),
-                    cf.importValue(cf.join(['coe-vpc-', cf.ref('Environment'), '-subnet-public-b']))
+                    cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-subnet-public-a'])),
+                    cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-subnet-public-b']))
                 ]
             }
 
@@ -70,7 +200,7 @@ export default {
                     FromPort: 80,
                     ToPort: 80
                 }],
-                VpcId: cf.importValue(cf.join(['coe-vpc-', cf.ref('Environment'), '-vpc']))
+                VpcId: cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-vpc']))
             }
         },
         HttpsListener: {
@@ -114,10 +244,7 @@ export default {
                 Port: 80,
                 Protocol: 'HTTP',
                 TargetType: 'instance',
-                Targets: [{
-                    Id: cf.ref('InstanceId')
-                }],
-                VpcId: cf.importValue(cf.join(['coe-vpc-', cf.ref('Environment'), '-vpc'])),
+                VpcId: cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-vpc'])),
                 Matcher: {
                     HttpCode: '200,202,302,304'
                 }
@@ -172,6 +299,61 @@ export default {
                 }
             }
         },
+        InstanceSecurityGroup: {
+            Type: 'AWS::EC2::SecurityGroup',
+            Properties: {
+                Tags: [{
+                    Key: 'Name',
+                    Value: cf.join('-', [cf.stackName, 'ec2-sg'])
+                }],
+                GroupName: cf.join('-', [cf.stackName, 'ec2-sg']),
+                GroupDescription: 'EC2s in this SG have access to the MySQL Database',
+                VpcId: cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-vpc'])),
+                SecurityGroupIngress: [{
+                    Description: 'ELB Traffic',
+                    SourceSecurityGroupId: cf.ref('ELBSecurityGroup'),
+                    IpProtocol: 'tcp',
+                    FromPort: 80,
+                    ToPort: 80
+                }, {
+                    Description: 'Internal SSH Traffic',
+                    CidrIp: cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-vpc-cidr'])),
+                    IpProtocol: 'tcp',
+                    FromPort: 22,
+                    ToPort: 22
+                }, {
+                    Description: 'AWS EC2 Connect internal VPC Endpoint',
+                    SourceSecurityGroupId: cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-connect-public-a-sg'])),
+                    IpProtocol: 'tcp',
+                    FromPort: 22,
+                    ToPort: 22
+                }, {
+                    Description: 'Forge Deploy IP: https://forge.laravel.com/ips-v4.txt #1',
+                    CidrIp: '159.203.150.232/32',
+                    IpProtocol: 'tcp',
+                    FromPort: 22,
+                    ToPort: 22
+                }, {
+                    Description: 'Forge Deploy IP: https://forge.laravel.com/ips-v4.txt #2',
+                    CidrIp: '45.55.124.124/32',
+                    IpProtocol: 'tcp',
+                    FromPort: 22,
+                    ToPort: 22
+                }, {
+                    Description: 'Forge Deploy IP: https://forge.laravel.com/ips-v4.txt #3',
+                    CidrIp: '159.203.150.216/32',
+                    IpProtocol: 'tcp',
+                    FromPort: 22,
+                    ToPort: 22
+                }, {
+                    Description: 'Forge Deploy IP: https://forge.laravel.com/ips-v4.txt #4',
+                    CidrIp: '165.227.248.218/32',
+                    IpProtocol: 'tcp',
+                    FromPort: 22,
+                    ToPort: 22
+                }]
+            }
+        },
         ApplicationGroup: {
             Type: 'AWS::IAM::Group',
             Properties: {
@@ -192,7 +374,10 @@ export default {
                         Action: 'sts:AssumeRole'
                     }]
                 },
-                Path: '/'
+                Path: '/',
+                ManagedPolicyArns: [
+                    cf.join(['arn:', cf.partition, ':iam::aws:policy/AmazonSSMManagedInstanceCore']),
+                ],
             }
         }
     }

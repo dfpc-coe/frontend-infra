@@ -92,8 +92,8 @@ export default {
             Properties: {
                 DBSubnetGroupDescription: cf.join('-', [cf.stackName, 'rds-subnets']),
                 SubnetIds: [
-                    cf.importValue(cf.join(['coe-vpc-', cf.ref('Environment'), '-subnet-private-a'])),
-                    cf.importValue(cf.join(['coe-vpc-', cf.ref('Environment'), '-subnet-private-b']))
+                    cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-subnet-private-a'])),
+                    cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-subnet-private-b']))
                 ]
             }
         },
@@ -106,12 +106,12 @@ export default {
                 }],
                 GroupName: cf.join('-', [cf.stackName, 'rds-sg']),
                 GroupDescription: 'Allow RDS Database Ingress',
-                VpcId: cf.importValue(cf.join(['coe-vpc-', cf.ref('Environment'), '-vpc'])),
+                VpcId: cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-vpc'])),
                 SecurityGroupIngress: [{
                     IpProtocol: 'TCP',
                     FromPort: 3306,
                     ToPort: 3306,
-                    SourceSecurityGroupId: cf.getAtt('ServiceSecurityGroup', 'GroupId')
+                    SourceSecurityGroupId: cf.getAtt('InstanceSecurityGroup', 'GroupId')
                 },{
                     IpProtocol: 'TCP',
                     FromPort: 3306,
