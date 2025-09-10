@@ -18,7 +18,7 @@ export default {
                 't4g.micro',
                 't4g.small',
                 't4g.medium',
-                't4g.large',
+                't4g.large'
             ]
         }
     },
