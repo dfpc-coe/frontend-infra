@@ -2,7 +2,7 @@ import cf from '@openaddresses/cloudfriend';
 
 const ForgeKeys = [{
     Key: ''
-}]
+}];
 
 export default {
     Parameters: {
@@ -20,7 +20,7 @@ export default {
                     LaunchTemplateId: cf.ref('InstanceLaunchConfig'),
                     Version: cf.getAtt('InstanceLaunchConfig', 'LatestVersionNumber')
                 },
-                TargetGroupARNs: [ cf.ref('TargetGroup') ],
+                TargetGroupARNs: [cf.ref('TargetGroup')],
                 InstanceMaintenancePolicy: {
                     MaxHealthyPercentage: 200,
                     MinHealthyPercentage: 100
@@ -29,9 +29,9 @@ export default {
                     cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-subnet-private-a'])),
                     cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-subnet-private-b']))
                 ],
-                MinSize: "1",
-                DesiredCapacity: "1",
-                MaxSize: "1",
+                MinSize: '1',
+                DesiredCapacity: '1',
+                MaxSize: '1',
                 Tags: [{
                     Key: 'Name',
                     Value: cf.stackName,
@@ -47,22 +47,22 @@ export default {
                     package_upgrade: true,
                     package_reboot_if_required: true,
                     configSets: {
-                        default: [ 'setup_users', 'sources']
+                        default: ['setup_users', 'sources']
                     },
                     setup_users: {
                         files: {
                             '/home/ubuntu/.ssh/authorized_keys': {
-                                content: ForgeKeys.map((User) => { return User.Key }).join('\n'),
+                                content: ForgeKeys.map((User) => { return User.Key; }).join('\n'),
                                 mode: '000600',
                                 owner: 'ubuntu',
                                 group: 'ubuntu'
-                            },
+                            }
                         }
                     },
                     sources: {
                         packages: {
                             apt: {
-                                wget: [],
+                                wget: []
                             }
                         },
                         commands: {
@@ -70,56 +70,56 @@ export default {
                                 command: 'apt-get update'
                             }
                         }
-                    },
+                    }
                 }
             },
             Properties: {
-                  LaunchTemplateName: cf.stackName,
-                  LaunchTemplateData: {
-                      ImageId: cf.ref('LatestUbuntuAMI'),
-                      InstanceType: 't4g.nano',
-                      SecurityGroupIds: [ cf.getAtt('InstanceSecurityGroup', 'GroupId') ],
-                      IamInstanceProfile: {
+                LaunchTemplateName: cf.stackName,
+                LaunchTemplateData: {
+                    ImageId: cf.ref('LatestUbuntuAMI'),
+                    InstanceType: 't4g.nano',
+                    SecurityGroupIds: [cf.getAtt('InstanceSecurityGroup', 'GroupId')],
+                    IamInstanceProfile: {
                         Arn: cf.getAtt('InstanceProfile', 'Arn')
-                      },
-                      UserData: cf.base64(cf.sub([
-                            '#!/bin/bash',
-                            'set -euo pipefail',
+                    },
+                    UserData: cf.base64(cf.sub([
+                        '#!/bin/bash',
+                        'set -euo pipefail',
 
-                            'apt-get update -y',
+                        'apt-get update -y',
 
-                            'sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config',
-                            'sed -i "s/PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config',
-                            'sed -i "s/#PermitRootLogin yes/PermitRootLogin no/" /etc/ssh/sshd_config',
-                            'sed -i "s/PermitRootLogin yes/PermitRootLogin no/" /etc/ssh/sshd_config',
-                            'sed -i "s/#PubkeyAuthentication yes/PubkeyAuthentication yes/" /etc/ssh/sshd_config',
+                        'sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config',
+                        'sed -i "s/PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config',
+                        'sed -i "s/#PermitRootLogin yes/PermitRootLogin no/" /etc/ssh/sshd_config',
+                        'sed -i "s/PermitRootLogin yes/PermitRootLogin no/" /etc/ssh/sshd_config',
+                        'sed -i "s/#PubkeyAuthentication yes/PubkeyAuthentication yes/" /etc/ssh/sshd_config',
 
-                            'systemctl restart ssh',
+                        'systemctl restart ssh',
 
-                            'apt-get install -y ufw python3-pip python3-setuptools',
+                        'apt-get install -y ufw python3-pip python3-setuptools',
 
-                            'ufw --force enable',
-                            'ufw allow ssh',
-                            'ufw --force reload',
+                        'ufw --force enable',
+                        'ufw allow ssh',
+                        'ufw --force reload',
 
-                            'export DEBIAN_FRONTEND=noninteractive',
+                        'export DEBIAN_FRONTEND=noninteractive',
 
-                            // Ref https://repost.aws/knowledge-center/install-cloudformation-scripts
-                            'mkdir -p /opt/aws/',
-                            'pip3 install --break-system-packages https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz',
+                        // Ref https://repost.aws/knowledge-center/install-cloudformation-scripts
+                        'mkdir -p /opt/aws/',
+                        'pip3 install --break-system-packages https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz',
 
-                            'ln -s /usr/local/init/ubuntu/cfn-hup /etc/init.d/cfn-hup',
+                        'ln -s /usr/local/init/ubuntu/cfn-hup /etc/init.d/cfn-hup',
 
-                            '/usr/local/bin/cfn-init --verbose --stack ${AWS::StackName} --resource InstanceLaunchConfig --region ${AWS::Region}',
-                            '/usr/local/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource InstanceLaunchConfig --region ${AWS::Region}'
-                      ].join('\n')))
-                 }
+                        '/usr/local/bin/cfn-init --verbose --stack ${AWS::StackName} --resource InstanceLaunchConfig --region ${AWS::Region}',
+                        '/usr/local/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource InstanceLaunchConfig --region ${AWS::Region}'
+                    ].join('\n')))
+                }
             }
         },
         InstanceProfile: {
             Type: 'AWS::IAM::InstanceProfile',
             Properties: {
-                Roles: [ cf.ref('InstanceRole') ]
+                Roles: [cf.ref('InstanceRole')]
             }
         },
         InstanceRole: {
@@ -376,8 +376,8 @@ export default {
                 },
                 Path: '/',
                 ManagedPolicyArns: [
-                    cf.join(['arn:', cf.partition, ':iam::aws:policy/AmazonSSMManagedInstanceCore']),
-                ],
+                    cf.join(['arn:', cf.partition, ':iam::aws:policy/AmazonSSMManagedInstanceCore'])
+                ]
             }
         }
     }
