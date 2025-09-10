@@ -4,10 +4,10 @@ export default {
     Parameters: {
         DatabaseType: {
             Type: 'String',
-            Default: 'db.m5.large',
+            Default: 'db.t4g.micro',
             Description: 'Database size to create',
             AllowedValues: [
-                'db.t3.micro',
+                'db.t4g.micro',
                 // If more options are added be sure to update the PerformanceInsights Condition
                 'db.m5.large'
             ]
@@ -116,7 +116,8 @@ export default {
                     IpProtocol: 'TCP',
                     FromPort: 3306,
                     ToPort: 3306,
-                    CidrIp: '0.0.0.0/0'
+                    CidrIp: cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-vpc-cidr'])),
+                    Description: 'Allow Ingress from within VPC'
                 }]
             }
         }
@@ -128,6 +129,9 @@ export default {
         DatabaseConfig: {
             'm5': {
                 PerformanceInsights: true
+            },
+            't4g': {
+                PerformanceInsights: false
             },
             't3': {
                 PerformanceInsights: false
