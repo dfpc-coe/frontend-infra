@@ -31,6 +31,16 @@ export default cf.merge(
                 Description: 'ACM SSL Certificate for top level wildcard: *.example.com and second level *.map.example.com',
                 Type: 'String'
             }
+        },
+        Resources: {
+            ApplicationAssociation: {
+                Type: 'AWS::ServiceCatalogAppRegistry::ResourceAssociation',
+                Properties: {
+                    Application: cf.join(['arn:', cf.partition, ':servicecatalog:', cf.region, ':', cf.accountId, ':/applications/', cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-application'])),]),
+                    Resource: cf.stackId,
+                    ResourceType: 'CFN_STACK'
+                }
+            }
         }
     },
     ELBAlarms({
