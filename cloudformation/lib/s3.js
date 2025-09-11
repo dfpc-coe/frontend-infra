@@ -19,7 +19,16 @@ export default {
                     CorsRules: [{
                         AllowedHeaders: ['Content-Type', 'Content-Length'],
                         AllowedMethods: ['GET'],
-                        AllowedOrigins: [cf.join(['https://', cf.ref('HostedURL')])]
+                        AllowedOrigins: [
+                            cf.join([
+                                'https://',
+                                cf.if(
+                                    'isRootDomain',
+                                        cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-hosted-zone-name'])),
+                                        cf.join([cf.ref('SubdomainPrefix'), '.', cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-hosted-zone-name']))])
+                                )
+                            ])
+                        ]
                     }]
                 },
                 OwnershipControls: {
@@ -107,7 +116,16 @@ export default {
                     CorsRules: [{
                         AllowedHeaders: ['Content-Type', 'Content-Length'],
                         AllowedMethods: ['GET'],
-                        AllowedOrigins: [cf.join(['https://', cf.ref('HostedURL')])]
+                        AllowedOrigins: [
+                            cf.join([
+                                'https://',
+                                cf.if(
+                                    'isRootDomain',
+                                        cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-hosted-zone-name'])),
+                                        cf.join([cf.ref('SubdomainPrefix'), '.', cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-hosted-zone-name']))])
+                                )
+                            ])
+                        ]
                     }]
                 },
                 OwnershipControls: {

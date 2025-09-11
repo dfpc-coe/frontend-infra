@@ -18,9 +18,32 @@ export default {
                 't4g.medium',
                 't4g.large'
             ]
+        },
+        SubdomainPrefix: {
+            Description: 'Subdomain prefix for the API (e.g. api, app, etc) - leave empty for root domain',
+            Type: 'String',
+            Default: ''
         }
     },
     Resources: {
+        ELBNS: {
+            Type: 'AWS::Route53::RecordSet',
+            Properties: {
+                HostedZoneId: cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-hosted-zone-id'])),
+                Type : 'A',
+                Name: cf.if(
+                    'isRootDomain',
+                        cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-hosted-zone-name'])),
+                        cf.join([cf.ref('SubdomainPrefix'), '.', cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-hosted-zone-name']))])
+                ),
+                Comment: cf.join(' ', [cf.stackName, 'UI/API DNS Entry']),
+                AliasTarget: {
+                    DNSName: cf.getAtt('ELB', 'DNSName'),
+                    EvaluateTargetHealth: true,
+                    HostedZoneId: cf.getAtt('ELB', 'CanonicalHostedZoneID')
+                }
+            }
+        },
         InstanceASG: {
             Type: 'AWS::AutoScaling::AutoScalingGroup',
             Properties: {
@@ -396,5 +419,8 @@ export default {
                 ]
             }
         }
+    },
+    Conditions: {
+        isRootDomain: cf.equals(cf.ref('SubdomainPrefix'), ''),
     }
 };
