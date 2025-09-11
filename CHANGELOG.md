@@ -12,6 +12,11 @@
 
 ### Pending Release
 
+### v1.30.0 - 2025-07-01
+
+- :tada: Include EC2 in ASG for easier deployment
+- :tada: Automatically create DNS entries
+
 ### v1.29.0 - 2025-07-01
 
 - :rocket: Update mysql to 8.4.5
