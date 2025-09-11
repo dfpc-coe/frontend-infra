@@ -1,8 +1,6 @@
 import cf from '@openaddresses/cloudfriend';
 
-const ForgeKeys = [{
-    Key: ''
-}];
+const ForgeKeys = [];
 
 export default {
     Parameters: {
