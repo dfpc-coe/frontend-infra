@@ -33,8 +33,8 @@ export default {
                 Type : 'A',
                 Name: cf.if(
                     'isRootDomain',
-                        cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-hosted-zone-name'])),
-                        cf.join([cf.ref('SubdomainPrefix'), '.', cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-hosted-zone-name']))])
+                    cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-hosted-zone-name'])),
+                    cf.join([cf.ref('SubdomainPrefix'), '.', cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-hosted-zone-name']))])
                 ),
                 Comment: cf.join(' ', [cf.stackName, 'UI/API DNS Entry']),
                 AliasTarget: {
@@ -421,6 +421,6 @@ export default {
         }
     },
     Conditions: {
-        isRootDomain: cf.equals(cf.ref('SubdomainPrefix'), ''),
+        isRootDomain: cf.equals(cf.ref('SubdomainPrefix'), '')
     }
 };
