@@ -8,6 +8,10 @@ export default {
             Description: 'Database size to create',
             AllowedValues: [
                 'db.t4g.micro',
+
+                // No Micro currnetly in GovCloud
+                'db.t4g.small',
+
                 // If more options are added be sure to update the PerformanceInsights Condition
                 'db.m5.large'
             ]

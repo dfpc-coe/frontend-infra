@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.30.1 - 2025-10-16
+
+- :rocket: Include additional RDS instance size for GovCloud use
+
 ### v1.30.0 - 2025-07-01
 
 - :tada: Include EC2 in ASG for easier deployment
