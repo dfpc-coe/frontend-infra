@@ -121,6 +121,12 @@ export default {
                     IamInstanceProfile: {
                         Arn: cf.getAtt('InstanceProfile', 'Arn')
                     },
+                    BlockDeviceMappings: [{
+                        DeviceName: '/dev/sda1',
+                        Ebs: {
+                            Encrypted: true
+                        }
+                    }],
                     UserData: cf.base64(cf.sub([
                         '#!/bin/bash',
                         'set -euo pipefail',
