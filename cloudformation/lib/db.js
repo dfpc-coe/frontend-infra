@@ -79,7 +79,7 @@ export default {
                 MasterUserPassword: cf.sub('{{resolve:secretsmanager:${AWS::StackName}/rds/secret:SecretString:password:AWSCURRENT}}'),
                 EnablePerformanceInsights: cf.if('PerformanceInsightsEnabled', true, false),
                 PerformanceInsightsRetentionPeriod: cf.if('PerformanceInsightsEnabled', 7, cf.noValue),
-                PerformanceInsightsKMSKeyId: cf.ref('KMS'),
+                PerformanceInsightsKMSKeyId: cf.if('PerformanceInsightsEnabled', cf.ref('KMS'), cf.noValue),
                 AllocatedStorage: 50,
                 MaxAllocatedStorage: 100,
                 BackupRetentionPeriod: 10,
