@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.32.0 - 2025-10-16
+
+- :rocket: Specify a NoValue for the DB Performance Insights KMS Key to avoid drift if no Performance Insights are enabled
+
 ### v1.31.0 - 2025-10-16
 
 - :rocket: Update ASG to include Encrypted Volume
