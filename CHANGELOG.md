@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.31.0 - 2025-10-16
+
+- :rocket: Update ASG to include Encrypted Volume
+
 ### v1.30.1 - 2025-10-16
 
 - :rocket: Include additional RDS instance size for GovCloud use
