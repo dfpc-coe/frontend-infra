@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.32.1 - 2025-09-23
+
+- :bug: Fix Secret Description
+
 ### v1.32.0 - 2025-09-23
 
 - :rocket: Include AWS Secrets for OAuth Keys

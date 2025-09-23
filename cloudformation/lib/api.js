@@ -49,7 +49,7 @@ export default {
             DeletionPolicy: 'Retain',
             Properties: {
                 Name: cf.join('-', [cf.stackName, 'oauth-public-key']),
-                Description: cf.join(['OAuth Public Key for ' + cf.stackName]),
+                Description: cf.join(['OAuth Public Key for ', cf.stackName]),
                 KmsKeyId: cf.ref('KMS')
             }
         },
@@ -58,7 +58,7 @@ export default {
             DeletionPolicy: 'Retain',
             Properties: {
                 Name: cf.join('-', [cf.stackName, 'oauth-private-key']),
-                Description: cf.join(['OAuth Private Key for ' + cf.stackName]),
+                Description: cf.join(['OAuth Private Key for ', cf.stackName]),
                 KmsKeyId: cf.ref('KMS')
             }
         },
