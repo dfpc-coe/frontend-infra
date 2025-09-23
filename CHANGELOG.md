@@ -12,11 +12,15 @@
 
 ### Pending Release
 
-### v1.31.0 - 2025-10-16
+### v1.32.0 - 2025-09-23
+
+- :rocket: Include AWS Secrets for OAuth Keys
+
+### v1.31.0 - 2025-09-16
 
 - :rocket: Update ASG to include Encrypted Volume
 
-### v1.30.1 - 2025-10-16
+### v1.30.1 - 2025-09-16
 
 - :rocket: Include additional RDS instance size for GovCloud use
 

@@ -44,6 +44,24 @@ export default {
                 }
             }
         },
+        OAuthSeedPublicKey: {
+            Type: 'AWS::SecretsManager::Secret',
+            DeletionPolicy: 'Retain',
+            Properties: {
+                Name: cf.join('-', [cf.stackName, 'oauth-public-key']),
+                Description: cf.join(['OAuth Public Key for ' + cf.stackName]),
+                KmsKeyId: cf.ref('KMS')
+            }
+        },
+        OAuthSeedSecretKey: {
+            Type: 'AWS::SecretsManager::Secret',
+            DeletionPolicy: 'Retain',
+            Properties: {
+                Name: cf.join('-', [cf.stackName, 'oauth-private-key']),
+                Description: cf.join(['OAuth Private Key for ' + cf.stackName]),
+                KmsKeyId: cf.ref('KMS')
+            }
+        },
         InstanceASG: {
             Type: 'AWS::AutoScaling::AutoScalingGroup',
             Properties: {
