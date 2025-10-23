@@ -1,0 +1,334 @@
+# **COTAK.GOV**
+
+# Website Guide
+
+#  v1.2 \- July 2025
+
+# Table of Contents
+
+[Background](#background)
+
+[Getting Started](#getting-started)
+
+[Claim agency / Sign-Up](#claim-agency-/-sign-up)
+
+[Login](#login)
+
+[Request a New User Account](#request-a-new-user-account)
+
+[Request a New Agency Account](#request-a-new-agency-account)
+
+[Manage User Profile](#manage-user-profile)
+
+[Training](#training)
+
+[Resources](#resources)
+
+[Request Support](#request-support)
+
+[Downloads](#downloads)
+
+[My COTAK \- View channels](#my-cotak---view-channels)
+
+[Data Retention](#data-retention)
+
+[Agreement Policies](#agreement-policies)
+
+[Join / Create Agency](#join-/-create-agency)
+
+[COTAK User Forum](#cotak-user-forum)
+
+[CloudTAK](#cloudtak)
+
+[Admin Tools](#admin-tools)
+
+[Manage User Requests](#manage-user-requests)
+
+[Manage Users](#manage-users)
+
+[Health Check](#health-check)
+
+[Create and Manage Channels](#create-and-manage-channels)
+
+[Interagency Channels](#interagency-channels)
+
+[Create Data Syncs](#create-data-syncs)
+
+[Agency Settings](#agency-settings)
+
+[Testimonials](#testimonials)
+
+# **Background**
+
+This guide is primarily intended for Agency Administrators from COTAK member agencies, and the COTAK Program Team. Other users may also find value in some of this guide’s content. The purpose of this guide is to document the features and tools contained within the cotak.gov website.
+
+The COTAK website (cotak.gov) is a hub of information on the program for use by current and prospective users. It was created by the COTAK Program Team and can be accessed on desktop or mobile devices. It has two “sides” to it; a guest side that allows viewers to learn about COTAK and access training materials, and a secure side that provides approved COTAK users access to virtually all aspects of COTAK including downloads and technical support. 
+
+When a user is vetted, approved, and assigned to their appropriate agency they receive COTAK login credentials. The email and password used in the creation of their account will provide access to the “secure” side of the COTAK website. On this site, users have access to COTAK news, training, forums, and other resources allowing them to self-learn how to effectively use COTAK. The email and password also allow them to connect their TAK mobile apps or CloudTAK to the program TAK Server.
+
+# **Getting Started**
+
+## Claim agency / Sign-Up
+
+![Image of header bar on cotak.gov with black sign up box](./img/image1.png)
+
+Prospective users or agencies can visit cotak.gov and click on the black “Sign Up” button in the top right corner of the home landing page. This action navigates them to a page with three options.
+
+![Image with three options to pick: log into existing account, Request a new user account, and request a new agency account](./img/image2.png)
+
+### **Login**
+
+By selecting **“Log into an Existing Account**” from the Sign Up menu, the user will be prompted to log in with established credentials. This same action can be accomplished by clicking the “Log In” button on the cotak.gov home page. 
+
+![Image cotak.gov login page](./img/image3.png)
+
+### **Request a New User Account**
+
+Choosing “**Request a New User Account**” allows prospective users to request a new account with an existing agency. The user will verify their email through an automated message sent to their inbox. A notification will then be sent to the agency administrator that a user wishes to join their agency. The agency administrator has sole responsibility for vetting this request, if they approve the request the user’s account becomes fully functional in COTAK as a member of that agency. If they deny the request no further action is taken and the prospective user receives no account and is not notified of this. 
+
+Agency administrators have the ability in their agency settings to enable or disable this feature by toggling the ‘joinable’ option on or off as discussed later in this document. If this feature is disabled a prospective user will be unable to discover that the agency exists in COTAK and will be unable to attempt to join it. This leaves the agency administrator in sole control of the process of creating new users for their agency by logging in themselves and creating new accounts for their users. 
+
+![Page displaying text stating that we need to verify your email before you register](./img/image4.png)
+
+### **Request a New Agency Account**
+
+To create a new agency in COTAK an individual can navigate to “**Request a New Agency Account**” from the Sign Up page. Again, the person must verify their email address through verification sent to their inbox. The COTAK system administrators will verify the request and determine if the agency will be granted access to the platform. Agencies must provide public safety services within the State of Colorado to use COTAK per our terms and conditions. These agencies may be at any level of government, and private sector providers of public safety services may be allowed in with a sponsoring government agency’s approval.  
+
+![Page displaying text stating requirements to claim or register an agency in COTAK](./img/image4.5.png)
+
+When requesting a new agency account, users can select their agency from a list of agencies. This list was generated by the CCRMAS (Colorado Coordinated Regional Mutual Aid System), also known as the CMAS (Colorado Mutual Aid System). By choosing an agency from this database, the new agency will automatically populate with administrative information related to the agency’s location, types of responders, the administrative point of contact, and the agency/channel prefix nomenclature. Using this function is optional, and if an agency is not listed in the CCRMAS list, users have the option to create one from scratch.
+
+Once a user’s request to create a new agency in COTAK has been vetted by COTAK system administrators and approved, the agency will immediately become active. The requesting user’s account will also become active, and that user will be automatically set as the agency administrator for that agency. This status allows the agency administrator to create additional users for their agency, and to create TAK channels for their agency. These tools are discussed further in this document in the “Admin Tools” section. 
+
+Multiple users can be set as agency administrators for an agency. This action can only be done by COTAK system administrators, so if you would like additional agency administrators for your agency, first create normal user accounts for your personnel, then file a support ticket asking for them to be upgraded from normal users to agency administrators. 
+
+The agency administrator is also required to e-sign two agreements between their agency and the State of Colorado. These agreements cover the terms and conditions of usage of COTAK. A grace period of 90 days has been granted to allow agencies time to demo the COTAK system before they sign the agreements. If agreements have not been signed after 90 days the admin tools will be blocked until the agreements are signed. This will not affect existing user’s ability to utilize the TAK apps and connect to the COTAK Server. 
+
+## Manage User Profile
+
+Any COTAK user can manage their profile by logging into the website and selecting their initials displayed in the top right corner and “Profile” under “Manage Account.” The information set when creating an account can be updated under “Profile Information.” On the same page, users can change their password, enable two-factor authentication for the website, force sign-out of other browser sessions, and delete their account. 
+
+An important attribute users can self-manage on this webpage is their responder type. A wide selection of available responder types includes law enforcement, fire, EMS, search and rescue, hospital personnel, utilities, and more. When a user selects a specific responder type, they may gain immediate access to one or more related MAC (Multi-Agency Coordination) channels in the TAK app, if a channel exists and is available to their agency. For example, any user in COTAK who chooses "Wildland Fire" as their responder type will be granted access to the “CO Wildland Fire MAC” channel. These examples may exist at the county or regional level as well, for example any user who is a member of a Summit County-based agency AND has a responder type of “law enforcement” will be granted access to the “STX \- Law Ops” channel, which provides county-wide mutual aid for law enforcement purposes. 
+
+MAC channels may also provide live map markers related to the channel, related data packages, and related data sync missions. For example, Wildland Fire responders who turn the CO Wildland Fire MAC channel on will begin to automatically receive map markers for the location of currently burning wildfires reported to the interagency dispatch centers, and will gain access to data sync missions containing data from multiple wildfire mapping programs. These resources can significantly aid in decision-making and enhance situational awareness during wildfire events.
+
+Responder types are editable by agency administrators and by users themselves. This is intended to allow flexibility for users to set appropriate responder types to their role in public safety, for instance a sheriff’s deputy who also supervises the search and rescue program in their county may designate themselves as both ‘law enforcement’ and ‘search and rescue’ as their responder types. These responder types are subject to regular audit by system administrators. Persistent inappropriate usage of responder types (ie a purely search and rescue user designating themselves as a ‘law enforcement’ responder type) may be subject to corrective action including the termination of the users account. 
+
+# **Training**
+
+The COTAK.gov website offers training materials to help agencies teach their employees how to effectively use the software. The training section of the website provides video-based training on the basic workflows for each version of the TAK application, including iTAK for iOS, ATAK for Android, WinTAK for Windows, and CloudTAK for web-based use. The training resources cover various subjects from getting started with each application, creating and sharing data, and working with integrations. This content is available on both the guest (non-logged in) and logged in sides of the website. 
+
+![Image displaying training options on cotak.gov website options under Training tab](./img/image5.png)
+
+# **Resources**
+
+Additional helpful resources can be located under the “Resources” tab. This tab and its items only appear when a user is logged into the website.
+
+## Request Support
+
+Users can submit a support request through the COTAK help desk. To access past and current support tickets associated with their account, users can select "Resources" and then click on "Request Support." The orange button labeled "Create Support Ticket" enables users to submit a new request. During this process, users will be asked to provide their agency name, the category of the issue, and any additional notes regarding their query. Users can return to the "Request Support" page at any time to check the status of their ticket. When a ticket is created, it notifies the COTAK program team. This process allows administrators to delegate responses systematically and keep track of the ticket's ownership and status.
+
+If a user is unable to access this support tickets tool they may email support@cotak.gov to request support from the COTAK program team.  
+
+![Image displaying how to submit a support ticket on cotak.gov](./img/image6.png)
+
+## Downloads
+
+The “Downloads” page under the “Resources” tab offers agencies the latest application downloads for ATAK, iTAK, and WinTAK. The installer file for WinTAK may be found here, note that the mobile apps for ATAK and iTAK are not downloaded from cotak.gov but rather may be found in the app store. 
+
+This page also provides additional installation and getting-started instructions for all platforms, as well as basemap files for WinTAK. When selected, the basemap files will download to the device and can be imported. These files connect WinTAK to map sources that stream over the internet, offering a scalable resolution for dynamic zooming. As WinTAK comes with only a low-resolution basemap by default it is highly recommended that users install these additional resources.
+
+## My COTAK \ View channels
+
+The “My COTAK” page under the “Resources” tab directs the user to a page displaying all the channels they are currently a member of, similar to the “Channels” tool found within the TAK apps themselves. This page displays short descriptions of each channel.
+
+## Data Retention
+
+Users can find information about COTAK’s data retention policies under the “Resources” tab, labeled “Data Retention.” These policies are subject to change as the system grows, and current policies may be found on this page. Generally COTAK offers limited retention of data on the location history of COTAK users, and on any files that are uploaded or passed through the system. Users are encouraged to retrieve their data from the system as soon as possible if they recognize the need for an export of their data. A support request may be placed to request this data if necessary.
+
+## Agreement Policies
+
+This page, found under the "Resources" tab, includes copies of the current agency-level agreements required for usage of COTAK, and is intended for informational purposes only. Agencies can use this page to view and download agreements if they need to print copies for their records or to provide to their legal department, among other uses.
+
+When an agreement is due for signature, a red box will appear across the top of the cotak.gov website when an agency administrator logs in, prompting them to e-sign the agreements. 
+
+## Join / Create Agency
+
+COTAK recognizes that users may work or volunteer for multiple public safety organizations. To accommodate this, the cotak.gov website allows users to join multiple agencies.
+
+Logged-in users can access this feature by clicking on “Join/Create Agency” under the “Resources” tab. From there, they can either request to join an existing agency within the COTAK system or register a new agency that hasn’t yet been claimed. For more details about these options, please refer to the "Claim Agency / Sign-up" section of the Getting Started document. When a user requests to join an existing agency the administrator for that agency is notified and can accept or reject that request. 
+
+When a user has access to multiple agencies, they will be able to access the additional channels associated with each agency within the application. If a user has agency administrator status with multiple agencies, they can switch between agency profiles using the drop-down menu next to the bell icon at the top right corner of the website.
+
+## COTAK User Forum
+
+All COTAK users can access the user forum by clicking on the link under ‘Resources’ or directly navigating to forum.cotak.gov, where you will be prompted to allow the forum to access your COTAK account to log in. Allow this, and you will be directed to the forum home page. The forum is an excellent resource for staying informed about current events and developments related to COTAK. This forum allows all system users to exchange information and ideas, as well as to post questions for the community.
+
+On the left side of the page, you will see a toolbar that grants access to unread, recent, tagged, and popular posts. The right side toolbar includes a search bar, notifications, chat, and draft posts. Additionally, users can access and edit their profiles using the profile icon located at the top of the right toolbar.
+
+![Image displaying user forum on cotak.gov with COTAK discussion and questions](./img/image7.png)
+
+## CloudTAK
+
+The browser-based TAK application built by the CoE can be accessed from the “Resources” tab. Selecting “Launch CloudTAK” will navigate the user to the CloudTAK application. Details on how to utilize the application can be found within the “Training” tab on the website. 
+
+![Image displaying side bar of CloudTAK](./img/Image%207.5.png)
+
+# **Admin Tools**
+
+The first user for each agency joining COTAK automatically becomes an Agency Administrator for that agency. These users receive elevated permissions to effectively manage their agency as detailed in this section. 
+
+Additional users who want to manage their agency's data and personnel within cotak.gov can be upgraded to agency administrator status by a COTAK system administrator. To request this designation, users should submit a support ticket by selecting “Request Support” under the Resources tab on the website. The existing agency administrator for that agency will be contacted by the COTAK program team to verify the request, and if approved the user will have their permissions upgraded to become an agency administrator.
+
+## Manage User Requests
+
+If your agency is set to ‘joinable’ in the agency settings, you will receive an automated email notification when a new user request is submitted by a prospective user. Upon logging into cotak.gov, administrators can also access a bell icon in the top right corner of the screen indicating that a new action is available. Clicking on this icon will open the notifications pane and direct the admin to view the User Requests page. Alternatively, the page can be accessed by going to the Admin drop-down menu and selecting “User Requests.”   
+
+![Image displaying notifications bell on cotak.gov](./img/image8.png)![Image displaying notification from a user request on cotak.gov](./img/image9.png)
+
+On this page, administrators can view requests from users who want to join the agency. The details provided include the requester's name, contact information, and the status of their request, along with action buttons to accept or reject the request. If you accept a request that user becomes a member of your agency and their COTAK account is activated. If you deny a request that person does not receive an account, and they are not notified that their request was denied. 
+
+![Image displaying User Requests page on cotak.gov](./img/image10.png)
+
+## Manage Users
+
+cotak.gov provides agency administrators with the option to create new users themselves by navigating to “Users” under the Admin tab. To create a new user, select the orange button in the top right of the screen. Enter the user information and one or more Responder Types for that user to assign inherent access to specific channels. The password for the new user can be assigned from this page but leaving this option off will trigger COTAK to prompt the new user to create a password via email. This is the most secure and recommended method. Password assignment is typically reserved for unusual or emergent account creation. Account credentials created in cotak.gov are used to authenticate users to the server in each of the TAK applications.
+
+Navigating back to the User page provides a view of all agency users. A user can be enabled, disabled, and removed here, using the respective buttons. Disabling a user removes their access to all channels and blocks them from connecting to the COTAK Server using the TAK apps. This access can be restored by enabling their account. The intent of this function is to restrict access to COTAK temporarily, such as with seasonal employees. Deleting a user’s account also removes their channels and blocks them from the server but in a more permanent way. That being said, it is possible to create a new user account with the same email address as a previously deleted account at a later date.   
+
+![Image displaying User page under admin login of cotak.gov](./img/image11.png)
+
+
+The pencil icon provides the ability to edit the user account. Passwords can be changed or reset from here. The reset password option will email the user and prompt them to create a new password. A user's responder types can also be edited here; note that users themselves can also edit their responder types in their user profile. In the center of this page is an option to view a user’s channels, this shows any channels within your agency that the user has been added to by name, along with an option to remove them from those channels. This function does not include any channels that are automatically managed, or channels from outside the agency such as counties, regions, or COTAK itself. 
+
+![Image displaying how to edit user details under admin login of cotak.gov](./img/image12.png)
+
+### **Health Check**
+
+Agency administrators can receive information on the status of user accounts and their usage of the TAK apps using the "Health Check" option next to each username on the User page.  
+
+![Image displaying how to view a health check on a user under the admin login of cotak.gov](./img/Image13.jpg)
+
+Opening the “Health Check” panel for a specific user offers detailed insights into that account. From this panel, you can retrieve basic user information, which includes the user's account details such as their name, email, phone number, associated agencies, responder type (either self-assigned or assigned by others), and the roles linked to that user.
+
+![Image displaying health check on a user under the admin login of cotak.gov](./img/image14.png)
+
+The Top Level Health Check section is located below the Basic User Information and offers insights into the user's health and activity. In this section, you can view the user's active status, the timestamp of their last login to the [cotak.gov](http://cotak.gov) website, the timestamp of their last TAK device activity on the TAK Server, the agency status, the verified email status, and the password status. An element may be marked with a red “X” if it has been flagged for critical issues requiring attention. A yellow “?” indicates a warning, suggesting that an element is outdated or missing, but the element remains functional overall. Contact COTAK for help deciphering next steps if something is flagged as a warning or issue.
+
+![Image displaying top level health check on a user under the admin login of cotak.gov](./img/image15.png)
+
+Displayed below the “Top Level Health Check” the “Support Requests” section shows requests submitted by the user. Following this, there is a “COTAK Channels” section that provides an authoritative list of COTAK channels accessible to the user in their TAK client. This list may include Mutual Aid Channels, as well as channels managed by external agencies, both of which are indicated in italics. Channels shown in bold are managed by the admin’s agency. 
+
+![Image displaying COTAK channels description under the admin login of cotak.gov](./img/image16.png)
+
+As with the Top Level Health Check section, a channel may be marked with a red “X” if it has been flagged for critical issues requiring attention. A yellow “?” indicates a warning, suggesting that an element is outdated or missing, but the channel remains functional overall.
+
+![Image displaying top level health check viewed under the admin login of cotak.gov](./img/image17.png)
+
+The TAK Channels tab shows the channels available to the user on their TAK device, organized by channel type categories: managed channels, responder type channels, all users, and role channels. The Email Channels panel lists all the groups the user belongs to that may receive communications from [cotak.gov](http://cotak.gov).
+
+![Image displaying example of COTAK channels viewed under Channels under admin login of cotak.gov](./img/image18.png)
+
+Active TAK channels will display the selected channels in the end-user device application that are currently toggled on. If the user has not logged into a TAK client recently, this list may be outdated.
+
+![Image displaying example of Active COTAK channels viewed under Channels under admin login of cotak.gov](./img/image19.png)
+
+If a channel is marked with a red "X," it indicates a potential issue. The Channel Inconsistencies section may provide insight into the problem. This section highlights any discrepancies between the channels assigned in [cotak.gov](http://cotak.gov) and those available in the TAK app. If inconsistencies exist, this section will display an error message. Inconsistencies can arise if the user has not opened their TAK app since receiving channel access. Have the user open their TAK app and verify their channel list. If the user has verified and they still do not have access to the correct channels in their app, the admin has the option to sync the channels to the server. Use the sync button in the Channel Inconsistencies header. This button is only available if inconsistencies are present. After tapping this button, a message appears in the upper right corner of the screen letting the admin know that the sync tool is running.
+
+![Image displaying example of channel inconsistencies viewed under Channels under admin login of cotak.gov](./img/image20.png)
+
+If there are any remaining flags in this section, report them to the COTAK support team for assistance.
+
+## Create and Manage Channels
+
+Agency Administrators may create and manage channels for users within your agency. COTAK channels function as a means of organizing personnel, with all of your users who turn the TAK apps and the same channels on gain the ability to see each other’s location, and to interact using the TAK apps by sharing points and shapes, text messaging, and exchanging other types of public safety data.
+
+Channels can be created and edited by navigating to Admin and “Channels.” Select the pencil icon next to a channel to edit, or choose “Create Channel” in the top right of the page to create a new channel. 
+
+The Channel Name is the name that will display in the TAK apps for users to refer to when they turn channels on or off. While not required, many agencies mirror the channel names of their voice radios in COTAK. The “Short Description” field for the channel allows you to add more text, which then is displayed in the TAK apps along with the channel name, and can be useful for providing your users more information about the purpose of a channel. The “Long Description” field does not pass through to your users, but can be useful to you and other agency administrators as a space to keep notes on the purpose of the channel.
+
+Finally, the settings in the Channel Membership section determine which of your agency’s users will be able to access the channel in the TAK app. COTAK offers three options for this setting: “All Users” automatically gives all users in your agency access to the channel. As user accounts in your agency are created or deleted the membership of the channel will be automatically updated to match your current active users.
+
+“Responder Types” also automatically manages membership of the channel but is based on the responder types of your users. You may set a channel to be automatically visible to all of your users whose responder types match those you set for the channel. This feature may be useful for larger agencies who house multiple types of first responders.   
+
+![Image displaying the three types of channel memberships an agency admin can set up on cotak.gov](./img/image%2021.png)
+
+Finally, the “Managed” option allows you and other agency administrators in your agency to add and remove users from a channel by name. Once a channel has been set to ‘Managed’ and created, an agency administrator may click on the pencil tool to edit it, and then click on the “Users” option to see a list of users assigned to that channel. Selecting the “Remove” option next to a user removes them from the channel, while the “Add User to Channel” option allows you to search for users in your agency to add to the channel.  
+
+![Image displaying how to remove users from a channel on cotak.gov](./img/image22.png)
+
+![Image displaying how to edit channels under admin login on cotak.gov](./img/image23.png)
+
+To view the particular Managed channels to which a user is assigned click the pencil to the right of the user within the “User” page of cotak.gov. Click the “Channels” toggle at the top center of the page. This will list the channels to which the user has access. You can remove a channel from a user by clicking the red X. Note that agency administrators cannot remove access to “All Users” or “Responder Types” channels, since membership in those channels are automatically controlled by the system. 
+
+![Image displaying how to remove channels from a user's account under admin login on cotak.gov](./img/image24.png)
+
+## Interagency Channels
+
+Agencies may want to create interagency channels if they are interoperating with nearby agencies on a continuous or daily basis in ways that don’t conform to a typical mutual aid plan. These channels also provide improved location security over MAC channels by creating interoperability between specified members or units of each agency (by using preexisting channels), limiting which members of each agency can view the data. The end result of implementing an interagency channel is that users from multiple agencies will see a new channel appear in the TAK app (the interagency channel), and by turning that channel on they will be able to have full interoperability in the app with each other. 
+
+The agency admin of the hosting agency is responsible for inviting other agencies to join the interagency channel and monitoring what channels other agencies add to it. Only the hosting agency can fully delete the interagency channel from COTAK if it is no longer needed. 
+
+To create interagency channels, log in to COTAK.GOV and navigate to the admin tools. Select the "Interagency Channel" tool and click on "Create New Interagency Channel." Next, come up with a channel name that is easily identifiable by all participating agencies. Provide a brief description for display within the TAK apps, keeping it concise (no more than two sentences). In the final box, write a description for the COTAK website to explain the channel's purpose and the involved groups. Once you have completed all fields, click "Create."
+
+![Image displaying how to create interagency channels under admin login on cotak.gov](./img/image25.png)
+
+You will be directed to the interagency channel manager. From this interface, you can edit the interagency channel information, connect agency channels, and invite other agencies to join. 
+
+Each participating agency including the host agency must add pre-existing channels with designated users to enable the functionality of this feature. To do this, navigate to the interagency channel tab and select "Include," then choose a pre-existing channel from your agency. Users with access to the pre-existing channel will then see the new interagency channel the next time they open the TAK app.  
+
+![Image displaying how to add channels to an interagency channel under the admin login on cotak.gov](./img/image26.png)
+
+An invitation can be sent to external agencies you wish to add to the interagency channel. To send an invitation as the host, go to the invites page and find the desired agency. This agency can accept or decline the invitation through the notifications viewer or the interagency channel admin tool. 
+
+![Image displaying how to invite an agency to an interagency channel under admin login on cotak.gov](./img/image27.png)
+
+Both the host and the invitee can remove their channels from the interagency channel connection by selecting the "Remove" button under the included channels. The host also has the ability to revoke access for invited agencies by navigating to the "Invitations" tab and clicking "Delete." This action will remove all connections to that agency in the interagency channel. However, the channels owned by the invited agency will remain unaffected; they will simply no longer be part of the interagency channel.
+
+![Image displaying how to delete an interagency channel under admin login on cotak.gov](./img/image28.png)
+
+## Create Data Syncs
+
+Data Sync enables sharing custom data through data feeds, otherwise known as “missions.” The data shared in this method syncs with users who have subscribed to the feed immediately if users are connected to the COTAK server. Users working in a disconnected setting will receive updates to the data as soon as they reestablish connection to the server. Data deleted by the creator will be removed from all other users' maps.
+
+![Image displaying how to create a datasync under admin login on cotak.gov](./img/image29.png)
+
+Users have the capability to create data syncs within each of the TAK applications, and agency administrators may create missions through a user interface in cotak.gov. To create a data sync mission in cotak.gov, users will navigate to the Admin tab at the top of the page and select Data Sync. From the Data Sync page, select the orange “Create New Data Sync” button to create a new mission. The name and description fields should be filled out in relation to the content of the sync. Check boxes under the Options category should remain untouched unless the user has specific reasons to change these. 
+
+The selected channel from the drop-down menu under “Channels” dictates which channel the mission is shared to, users belonging to this channel will receive access. Once the Data Sync is saved and created, users will be prompted to add their files under “Files.” Again, the name of the file should reflect the content it contains. Geospatial data including KML, KMZ, and Geospatial PDF files can be shared to users via data sync, and automatically is added onto a user’s map when received. Files that do not contain geospatial data can also be shared via data sync, and can be viewed as attachments in the TAK apps.
+
+## Agency Settings
+
+Agency Administrators can edit or update various details on the “Agency Settings” page, which is accessed by clicking on your agency name in the top right corner of the website, then “Agency Settings.”
+
+![Image displaying Agency Settings option under admin login on cotak.gov](./img/Image29.5.png)
+
+Users can edit or update various details on the "Agency Settings" page. This includes the agency name, type, unit identifier, channel prefix, responder types, and primary PSAP (Public Safety Answering Point). This data is currently collected for analytical and administrative purposes. 
+
+The “Joinable” switch on this page determines whether prospective users on the guest side of cotak.gov can request to join your agency. If this switch is set to ‘off,’ no prospective users will be able to discover that your agency is a member of COTAK and no requests to join your agency can be made. If you are receiving unwanted or spam requests from prospective users setting this switch to ‘off’ will mitigate the issue, however you and your other agency administrators will then have to create all user accounts for your personnel using the previously discussed User admin tool.  
+
+![Image displaying how make an agency joinable under admin login on cotak.gov](./img/Image30.png)
+
+Agency administrators can also add an agency description, address, location details, administrative comments, and contact information on this page. These details are used for administrative purposes, and to assist the COTAK program team in contacting your agency if necessary.
+
+![Image displaying agency description under admin login on cotak.gov](./img/image31.png)
+
+Clicking on the “agreements” tab on the Agency Settings page allows you to view the status of the agreements which your agency is subject to, including who e-signed the agreements and when. If an agreement is pending and requires signature an option will appear next to it allowing any agency administrator in your agency to view and e-sign it. Note that if an agreement is outstanding a red bar will also appear across the top of the website prompting agency administrators to e-sign it. 
+
+Any of the agency administrators can e-sign the required agreements between their agency and the State of Colorado. These agreements cover the terms and conditions of usage of COTAK. A grace period of 90 days has been granted to allow agencies time to demo the COTAK system before they sign the agreements. If agreements have not been signed after 90 days the admin tools will be blocked until the agreements are signed. This will not affect existing user’s ability to utilize the TAK apps and connect to the COTAK Server. 
+
+![Image displaying COTAK Agreements under admin login on cotak.gov](./img/image32.png)
+
+## Testimonials
+
+![Image displaying how to submit a testimonial on cotak.gov](./img/image32.5.png)
+
+The testimonials page provides an excellent opportunity for agencies to share their usage of COTAK with Colorado’s public safety community, and to pass along any stories or anecdotes about how your responders are benefiting from the technology.
+
+Any agency administrator can submit one or more testimonials regarding COTAK along with the author's name and title. By submitting their testimonial, agencies agree to allow their examples to be used in COTAK's marketing materials and presentations.  
+
+![Image displaying how to create a testimonial on cotak.gov](./img/image33.png)
+
+Agency administrators can also add their agency’s badge or logo to a testimonial. The COTAK program team will review these logos, and may elect to add your logo to the scrolling list of COTAK member agencies displayed on the bottom of the cotak.gov home page. This is a great way to showcase your usage of COTAK with other current and prospective COTAK agencies, and is greatly appreciated by the program team\!
+
+![Image displaying Trusted by Colorado First Responders](./img/image34.png)
