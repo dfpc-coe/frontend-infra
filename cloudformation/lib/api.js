@@ -142,7 +142,8 @@ export default {
                     BlockDeviceMappings: [{
                         DeviceName: '/dev/sda1',
                         Ebs: {
-                            Encrypted: true
+                            Encrypted: true,
+                            VolumeSize: 20,
                         }
                     }],
                     UserData: cf.base64(cf.sub([
