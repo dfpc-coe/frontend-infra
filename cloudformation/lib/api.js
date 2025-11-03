@@ -143,7 +143,7 @@ export default {
                         DeviceName: '/dev/sda1',
                         Ebs: {
                             Encrypted: true,
-                            VolumeSize: 20,
+                            VolumeSize: 20
                         }
                     }],
                     UserData: cf.base64(cf.sub([
