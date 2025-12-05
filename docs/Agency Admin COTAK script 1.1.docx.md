@@ -1,0 +1,34 @@
+Agency Admin script
+
+COTAK.gov is the source for all COTAK users to learn about the system, access training materials and downloads, and request support. Each COTAK agency also has one or more agency administrators, who are responsible for ‘programming’ their agency’s use of COTAK. If you do not know who your agency administrator is, or would like to become an agency administrator, contact the project team at support@cotak.gov
+
+COTAK is designed with local control in mind. Once you are an agency administrator you have the ability to add and remove users in your agency, and create channels which your users can collaborate in using the TAK apps.
+
+Login at COTAK.gov with your username, which is your email address, and password. Note that this is the same username and password that you use to log in to the TAK apps, and if you update your password for the cotak.gov website you will also need to update your password in the TAK app to continue using it.
+
+We will review some key tools available to you as an agency administrator once you are logged into the website from right to left. At the far top right corner of the webpage you will see a circular button with your initials. Clicking on this allows you to edit your profile and change your password, or log out of the website. 
+
+Second from the right is a notification bell, which displays a count of any pending notifications you have. Clicking on this shows a list of any pending requests of users who have requested to join your agency, which is possible from the guest side of the website, as well as other types of requests and notifications.
+
+Next is a button with your agency’s name on it. Clicking on this shows an option to edit the agency settings, which are primarily administrative in nature. You also may view the agreements which your agency has with the COTAK project, and e-sign agreements as necessary. 
+
+If you have been given agency administrator permissions for more than one agency, you will see each agency in the drop down list under ‘switch agency’. Click on the agency you wish to edit, and the website will reload with the new agency now set as active.
+
+The next several options on the website are available to all COTAK users, whether they are agency administrators or not. These options provide information, news, training materials, and technical support to COTAK users.
+
+To the right of the home button are the admin tools, again these are only available if you have agency administrator permissions to one or more agencies in COTAK. First we will review the channels tool. Click the Admin dropdown on the top bar to select channels. It’s easier to create channels first then add users to those channels. You can either create a new channel using this button (NEW CHANNEL) or edit an existing one by clicking on the pencil.
+
+Name your channel, choose its level of visibility. “Public” permits other agencies to see that the channel exists, and allows agencies to request to add their personnel to your channel via a patch. Selecting agency or private prevents other agencies from attempting to join your channel. If you wish to allow multiple agencies to collaborate on a channel now or possibly in the future, choose public.
+
+In addition to the channel’s name, your users will be able to see a description of the channel in the TAK apps if you enter one in the “TAK Description” field. Keep this description relatively short since space is at a premium in the TAK apps. A longer description field is below and is only visible in the cotak.gov website if you need to keep notes on a channel. 
+
+In the dropdown menu for Channel Membership there are several options. **All Users** is the most straightforward way to begin as it does, in fact, add all users within your agency to the channel. **Managed** means you have to manually select users for this channel. **Responder Types** adds all users in your agency that are of a particular responder type or types. Responder type is an attribute each user can set for themselves in their profile settings, and users can be more than one type of responder. COTAK often uses responder type channels for mutual aid between many agencies, but this channel type may be of use in your agency if you have a large agency with multiple types of first responder. 
+
+It is also possible to add exceptions to the automatically assigned channels. **Managed, All Users** channels function so that all your agency users are added automatically, and specific users can be added after the fact. This feature was developed to allow COTAK system admins to add ‘machine users’ to an agency to provide data feeds into a channel, contact the COTAK project team to learn more about this feature. **Managed, Responder types** adds the capability described previously regarding adding data feeds but only adds users to the channel by designated responder type.
+
+
+Next, click the admin/**user** selection. You may create new users here. Each user must have a unique email address to which COTAK sends a request for the user to create a unique password. Responder types is helpful when adding users of different function to your channel. For example, you may have a user that needs access to many different channels. For example, a Sheriff’s Deputy may have operational needs for a Wildland Fire, EMS and a  Search and rescue channel. Designating the user with those responder types allows the agency admin the flexibility to auto-assign channels to that user by simply selecting all the responder types that apply. Use the drop down menu to select as many as are needed.. You may delete them later if a user’s role changes.
+
+Within the password field you may send a reset password link.  In unusual or emergent situations you may use assign password for ease of on-boarding users. Normally though if a user forgets their password you may send them an email allowing them to reset their password using the “send reset link” option.  Make sure to save your changes in the lower left.
+
+To the right on the Edit “User” click channels and you may view the channels to which the user has access. Importantly, if the user only has “all user” channels assigned to them the list of channels will appear blank. This is designed so that the user cannot be accidentally deleted from an all user channel. Most commonly, you may Attach a user to a channel by typing in the search bar, select the channel then click “Attach” or “Attach and Attach another” for users needing  multiple channels. Selecting specific channels in this manner is using the “Managed” function you designated on the Channels page.
