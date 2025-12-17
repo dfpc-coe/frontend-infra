@@ -1,0 +1,21 @@
+Hello and welcome to the Center of Excellence training series on TAK. In this tutorial we will cover how to load the datasync plugin in ATAK and access an existing feed. Subsequent videos will demonstrate how to create a new feed within DataSync. Let's get started. 
+
+Simply put, DataSync is a tool that creates feeds, which is like a folder for custom data sets and is hosted within the TAK Server. Any data in the feed is synchronized to all TAK app users who have subscribed to that feed. This sync happens immediately if the users are connected to the TAK Server, or will happen as soon as a user reconnects to the Server. As a result, data sync is the best method in TAK to ensure that all members of a team receive identical data when planning an operation. Conversely, items deleted by the DataSync Mission creator will disappear from users’ maps. This is useful for de-cluttering maps after an incident is complete.
+
+The first step is to download the DataSync plugin.  Scan the QR code or search the Play store for “Data Sync” to download the plug-in.
+
+If you are running ATAK when you download the plugin, the app should recognize the plugin and ask you if you would like to load it. If you are not running ATAK when you install the plugin, Open ATAK, then click the plug-in button and datasync should appear, if it does not, use the blue arrows to scan your device for available ATAK plugins. Ensure that DataSync is checked “loaded”.
+
+An important feature allows you to enable auto-downloads of larger files through data sync. Click on the drop down menu, Tool Preferences, Specific Tool Preferences and Data Sync preferences. Ensure the Auto Download Updates box is checked.
+
+Data sync feeds are associated with TAK channels. This means a feed will only show up in ATAK if you have the channel associated with the feed toggled on. This provides an additional level of security for the feed. In this example we will be using the COTAK system to access some wildland fire-specific data sync feeds. These are associated with the Colorado Wildland Fire MAC channel, so first we will turn this channel on.
+
+In this example we will load the Colorado MMA Perimeters, Colorado Fireguard detections and Colorado NIFS fire perimeters feeds. These are “read only” channels meaning users cannot delete or modify the content of the feed for others. These feeds are made up of GIS data containing geospatial data on wildfires. They are automatically updated every 10 minutes by the COTAK system.
+
+When you first select a feed you’d like to subscribe to, you’ll see a feed overview pop-up. On this, there will be several fields that may be of interest but most importantly there are the three options along the bottom – “Download once” only syncs one time, meaning any new information is not updated to your device – you can update or re-sync manually later, if you choose. Most users will choose download & sync as this is the most user-friendly way to receive feed data and will ensure that your device automatically keeps your feed content synced. 
+
+Once you have subscribed to a feed you should see available content in the map items, photos, or files boxes. Note that brand new feeds may not display anything until content is added. These items will be automatically added to your map pane. As long as the auto downloads check box from above is selected \- you will get any files the creator adds to the feed. If for any reason a file does not automatically download, you may see a notation in the download box (\*\*\*circle this) indicating an available item. By tapping this and download you will be able to manually force the item to download onto your device.
+
+Once an item has downloaded, it is usable in ATAK the same way as any other map item. However, since in this example the items are part of a read-only data sync feed, if you attempt to delete an item from your map, it will simply reappear after a few minutes when your device syncs with the TAK Server. If you need to hide this type of data sync content, you may simply hide it using the overlay manager, or by opening the data sync tool and hiding the content of a feed. 
+
+This concludes our tutorial for the ATAK Data Sync Plugin, powered by the Colorado Department of Public Safety and the Center of Excellence for Advanced Technology Aerial Firefighting. Thanks for watching\!  
