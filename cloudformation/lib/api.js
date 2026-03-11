@@ -128,6 +128,7 @@ export default {
                 LaunchTemplateData: {
                     ImageId: cf.ref('LatestUbuntuAMI'),
                     InstanceType: cf.ref('InstanceType'),
+                    DisableApiTermination: true,
                     NetworkInterfaces: [{
                         AssociatePublicIpAddress: true,
                         DeviceIndex: 0,
