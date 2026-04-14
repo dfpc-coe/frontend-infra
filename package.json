@@ -9,7 +9,7 @@
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "engines": {
-        "node": ">= 18"
+        "node": ">= 24"
     },
     "repository": {
         "type": "git",
@@ -25,9 +25,9 @@
         "@openaddresses/cloudfriend": "^7.0.0"
     },
     "devDependencies": {
-        "@openaddresses/batch-alarms": "^4.5.0",
-        "@openaddresses/deploy": "^9.0.0",
-        "eslint": "^9.1.1",
+        "@openaddresses/batch-alarms": "^5.0.0",
+        "@openaddresses/deploy": "^10.0.0",
+        "eslint": "^10.0.0",
         "eslint-plugin-n": "^17.4.0"
     }
 }

@@ -12,6 +12,10 @@
 
 ### Pending Release
 
+### v1.33.0 - 2026-04-13
+
+- :arrow_up: Update Core Deps
+
 ### v1.32.1 - 2025-09-23
 
 - :bug: Fix Secret Description
