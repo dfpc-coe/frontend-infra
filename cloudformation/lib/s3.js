@@ -60,6 +60,25 @@ export default {
                 VersioningConfiguration: {
                     Status: 'Suspended'
                 },
+                CorsConfiguration: {
+                    CorsRules: [{
+                        AllowedHeaders: ['*'],
+                        AllowedMethods: ['PUT'],
+                        AllowedOrigins: [
+                            cf.join([
+                                'https://',
+                                cf.if(
+                                    'isRootDomain',
+                                    cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-hosted-zone-name'])),
+                                    cf.join([cf.ref('SubdomainPrefix'), '.', cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-hosted-zone-name']))])
+                                )
+                            ]),
+                            'https://*.test'
+                        ],
+                        ExposedHeaders: ['ETag'],
+                        MaxAge: 3000
+                    }]
+                },
                 OwnershipControls: {
                     Rules: [{
                         ObjectOwnership: 'BucketOwnerEnforced'
