@@ -426,6 +426,12 @@ export default {
                     IpProtocol: 'tcp',
                     FromPort: 22,
                     ToPort: 22
+                }, {
+                    Description: 'Forge Deploy IP: https://forge.laravel.com/ips-v4.txt #5',
+                    CidrIp: '142.93.78.212/32',
+                    IpProtocol: 'tcp',
+                    FromPort: 22,
+                    ToPort: 22
                 }]
             }
         },

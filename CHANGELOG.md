@@ -12,6 +12,9 @@
 
 ### Pending Release
 
+### v1.34.0 - 2026-10-21
+
+- :rocket: Add 5th Forge IP
 - :rocket: Resolve `LatestUbuntuAMI` from the SSM Public Parameter Store instead of requiring a manually supplied AMI ID
 - :rocket: Move the frontend instance from Ubuntu 24.04 (Noble) to Ubuntu 26.04 (Resolute)
 
