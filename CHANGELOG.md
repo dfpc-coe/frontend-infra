@@ -12,6 +12,9 @@
 
 ### Pending Release
 
+- :rocket: Resolve `LatestUbuntuAMI` from the SSM Public Parameter Store instead of requiring a manually supplied AMI ID
+- :rocket: Move the frontend instance from Ubuntu 24.04 (Noble) to Ubuntu 26.04 (Resolute)
+
 ### v1.33.0 - 2026-04-13
 
 - :arrow_up: Update Core Deps

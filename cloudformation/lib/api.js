@@ -5,8 +5,9 @@ const ForgeKeys = [];
 export default {
     Parameters: {
         LatestUbuntuAMI: {
-            Description: 'AMI of Graviton compatible Ubuntu AMI',
-            Type: 'String'
+            Description: 'ARM64 Ubuntu 26.04 (Resolute) AMI ID',
+            Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>',
+            Default: '/aws/service/canonical/ubuntu/server/26.04/stable/current/arm64/hvm/ebs-gp3/ami-id'
         },
         InstanceType: {
             Description: 'EC2 Instance Type',
