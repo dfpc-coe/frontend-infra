@@ -144,12 +144,21 @@ export default {
                         DeviceName: '/dev/sda1',
                         Ebs: {
                             Encrypted: true,
-                            VolumeSize: 20
+                            VolumeSize: 40
                         }
                     }],
                     UserData: cf.base64(cf.sub([
                         '#!/bin/bash',
                         'set -euo pipefail',
+
+                        // 4 GB swap so a burst of queue jobs swaps instead of OOM-killing; skip if swap already exists
+                        'if ! swapon --show | grep -q .; then',
+                        '    fallocate -l 4G /swapfile',
+                        '    chmod 600 /swapfile',
+                        '    mkswap /swapfile',
+                        '    swapon /swapfile',
+                        '    echo "/swapfile none swap sw 0 0" >> /etc/fstab',
+                        'fi',
 
                         'apt-get update -y',
 
