@@ -12,6 +12,9 @@
 
 ### Pending Release
 
+- :rocket: Grant the EC2 instance role the S3, SMS, and KMS permissions as an inline policy
+- :rocket: Remove the unused `ApplicationGroup`, `ApplicationRole`, `ApplicationInstanceProfile` & `ApplicationPolicy` IAM resources now that the app authenticates via the instance role
+
 ### v1.35.0 - 2026-10-22
 
 - :rocket: Restrict internal VPC access to the RDS instance and lock only the frontend EC2
