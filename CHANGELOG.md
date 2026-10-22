@@ -12,6 +12,11 @@
 
 ### Pending Release
 
+### v1.35.0 - 2026-10-22
+
+- :rocket: Restrict internal VPC access to the RDS instance and lock only the frontend EC2
+- :rocket: Remove Public Flag from RDS instance to prevent accidental exposure to the public internet if the SG were to be misconfigured
+
 ### v1.34.0 - 2026-10-21
 
 - :rocket: Add 5th Forge IP

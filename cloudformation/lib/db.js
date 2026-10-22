@@ -87,7 +87,7 @@ export default {
                 DBInstanceClass: cf.ref('DatabaseType'),
                 VPCSecurityGroups: [cf.ref('DBVPCSecurityGroup')],
                 DBSubnetGroupName: cf.ref('DBSubnet'),
-                PubliclyAccessible: true,
+                PubliclyAccessible: false,
                 DeletionProtection: true
             }
         },
@@ -116,12 +116,6 @@ export default {
                     FromPort: 3306,
                     ToPort: 3306,
                     SourceSecurityGroupId: cf.getAtt('InstanceSecurityGroup', 'GroupId')
-                },{
-                    IpProtocol: 'TCP',
-                    FromPort: 3306,
-                    ToPort: 3306,
-                    CidrIp: cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-vpc-cidr'])),
-                    Description: 'Allow Ingress from within VPC'
                 }]
             }
         }
