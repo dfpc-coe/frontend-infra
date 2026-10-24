@@ -319,7 +319,11 @@ export default {
             Type: 'AWS::ElasticLoadBalancingV2::Listener',
             Properties: {
                 Certificates: [{
-                    CertificateArn: cf.join(['arn:', cf.partition, ':acm:', cf.region, ':', cf.accountId, ':certificate/', cf.ref('SSLCertificateIdentifier')])
+                    CertificateArn: cf.if(
+                        'hasCustomCertificate',
+                        cf.join(['arn:', cf.partition, ':acm:', cf.region, ':', cf.accountId, ':certificate/', cf.ref('SSLCertificateIdentifier')]),
+                        cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-acm']))
+                    )
                 }],
                 DefaultActions: [{
                     Type: 'forward',
@@ -425,6 +429,7 @@ export default {
         }
     },
     Conditions: {
-        isRootDomain: cf.equals(cf.ref('SubdomainPrefix'), '')
+        isRootDomain: cf.equals(cf.ref('SubdomainPrefix'), ''),
+        hasCustomCertificate: cf.notEquals(cf.ref('SSLCertificateIdentifier'), '')
     }
 };

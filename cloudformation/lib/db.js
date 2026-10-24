@@ -112,10 +112,17 @@ export default {
                 GroupDescription: 'Allow RDS Database Ingress',
                 VpcId: cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-vpc'])),
                 SecurityGroupIngress: [{
+                    Description: 'Frontend EC2 MySQL Access',
                     IpProtocol: 'TCP',
                     FromPort: 3306,
                     ToPort: 3306,
                     SourceSecurityGroupId: cf.getAtt('InstanceSecurityGroup', 'GroupId')
+                }, {
+                    Description: 'Internal VPC MySQL Access',
+                    IpProtocol: 'TCP',
+                    FromPort: 3306,
+                    ToPort: 3306,
+                    CidrIp: cf.importValue(cf.join(['tak-vpc-', cf.ref('Environment'), '-vpc-cidr']))
                 }]
             }
         }

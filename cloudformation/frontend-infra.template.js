@@ -24,8 +24,9 @@ export default cf.merge(
                 Default: 'prod'
             },
             SSLCertificateIdentifier: {
-                Description: 'ACM SSL Certificate for top level wildcard: *.example.com and second level *.map.example.com',
-                Type: 'String'
+                Description: 'Optional ACM Certificate ID to use in place of the VPC stack certificate',
+                Type: 'String',
+                Default: ''
             }
         },
         Resources: {
