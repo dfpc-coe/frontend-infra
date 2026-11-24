@@ -12,10 +12,13 @@
 
 ### Pending Release
 
+### v1.35.1 - 2026-11-24
+
 - :rocket: Allow MySQL access to the RDS instance from the internal VPC CIDR so the Bastion can reach the database
 - :rocket: Default to the ACM certificate exported by the VPC stack; `SSLCertificateIdentifier` is now optional and overrides it when set
 - :rocket: Grant the EC2 instance role the S3, SMS, and KMS permissions as an inline policy
 - :rocket: Remove the unused `ApplicationGroup`, `ApplicationRole`, `ApplicationInstanceProfile` & `ApplicationPolicy` IAM resources now that the app authenticates via the instance role
+- :arrow_up: Update all GH Action Dependencies to latest versions
 
 ### v1.35.0 - 2026-10-22
 
